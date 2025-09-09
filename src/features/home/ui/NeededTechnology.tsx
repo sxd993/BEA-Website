@@ -35,13 +35,6 @@ export const NeededTechnology = () => {
                     </span>
                   ))}
                 </div>
-  
-                {/* CTA кнопка */}
-                <div className="pt-6">
-                  <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium text-lg">
-                    Обсудить технологии
-                  </button>
-                </div>
               </div>
             </div>
           </div>

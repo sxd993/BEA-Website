@@ -93,7 +93,7 @@ export const Stack = () => {
                 >
                   {/* Иконка и заголовок */}
                   <div className="flex items-center space-x-3 mb-6">
-                    <div className="text-2xl group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-2xl group-hover:scale-130 transition-transform duration-300">
                       {category.icon}
                     </div>
                     <h3 className="text-xl font-semibold text-foreground">
