@@ -26,7 +26,6 @@ export const Header = () => {
               Технологии
             </button>
             <button 
-
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               Команда
@@ -40,11 +39,13 @@ export const Header = () => {
   
           <div className="hidden md:flex items-center space-x-4">
             <button 
-
+              className="px-4 py-2 text-foreground border border-border rounded-lg hover:bg-[#b76ec7] hover:text-white hover:border-[#b76ec7] transition-colors transition:0.7s"
             >
               Связаться
             </button>
-            <button>
+            <button 
+              className="px-4 py-2 bg-[#b76ec7] text-white rounded-lg hover:bg-[#b76ec7]/80 transition-colors"
+            >
               Рассчитать стоимость
             </button>
           </div>
@@ -53,7 +54,6 @@ export const Header = () => {
           <button 
             className="md:hidden"
           >
-
           </button>
         </div>
   

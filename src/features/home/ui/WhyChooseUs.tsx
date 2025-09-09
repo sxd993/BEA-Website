@@ -1,6 +1,6 @@
 export const WhyChooseUs = () => {
     return (
-      <div className="flex flex-col items-center justify-center bg-white p-6 md:p-10 rounded-lg shadow-lg max-w-4xl mx-auto">
+      <div className="flex flex-col items-center justify-center bg-white p-6 md:p-10 rounded-lg shadow-lg max-w-4xl mx-auto border-b border-gray-200">
         {/* Text Section */}
         <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">

@@ -4,6 +4,7 @@ import { Calculator } from "../features/home/ui/Calculator"
 import { Team } from "../features/home/ui/Team"
 import { Stack } from "../features/home/ui/Stack"
 import { NeededTechnology } from "../features/home/ui/NeededTechnology"
+import { FAQ } from "../features/home/ui/FAQ"
 
 export const HomePage = () => {
     return (
@@ -14,6 +15,7 @@ export const HomePage = () => {
             <Team />
             <Stack />
             <NeededTechnology />
+            <FAQ />
         </>
     )
 }

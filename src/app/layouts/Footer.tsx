@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin, Github, Linkedin, MessageCircle } from "lucide-rea
 
 export const Footer = () => {
   return (
-    <footer id="contact" className="bg-background border-t">
+    <footer id="contact" className="bg-background border-t border-gray-300">
 
       {/* Main Footer */}
       <div className="py-16">
@@ -59,7 +59,7 @@ export const Footer = () => {
       </div>
 
       {/* Bottom */}
-      <div className="py-6 border-t border-border">
+      <div className="py-6 border-t border-gray-300">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">

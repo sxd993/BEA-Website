@@ -79,7 +79,7 @@ export const Team = () => {
         </div>
 
         {/* Навыки */}
-        <div className="flex flex-wrap gap-1 justify-center">
+        <div className="flex flex-wrap gap-1 justify-center text-[#b76ec7]">
           {member.skills.slice(0, 3).map((skill, skillIndex) => (
             <span 
               key={`${skill}-${skillIndex}`}
@@ -139,16 +139,6 @@ export const Team = () => {
               </div>
             </div>
           )}
-        </div>
-
-        {/* CTA секция */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-6">
-            Готовы работать с нашей командой?
-          </p>
-          <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium">
-            Обсудить проект
-          </button>
         </div>
       </div>
     </section>
