@@ -1,58 +1,156 @@
-import { teamMembers } from '../const/teamMembers';
-
-// Define the interface for a team member
-interface TeamMember {
-  name: string;
-  role: string;
-  description: string;
-  experience: string;
-  skills: string[];
-  social: string[];
-  photo: string;
-}
+import { Github, Linkedin, Mail, User } from 'lucide-react';
+import { teamMembers, type TeamMember } from '../const/teamMembers';
 
 export const Team = () => {
-  return (
-    <div className="flex flex-col items-center bg-white p-6 md:p-10 rounded-lg shadow-lg max-w-4xl mx-auto">
-      <div className="text-center mb-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-          Наша команда
-        </h1>
-        <p className="mt-4 text-gray-600 text-sm md:text-base">
-          Профессионалы с многолетним опытом, готовые воплотить любую вашу идею в жизнь
-        </p>
+  const getSocialIcon = (platform: string) => {
+    const iconProps = { className: "w-5 h-5", strokeWidth: 1.5 };
+    
+    switch (platform) {
+      case 'github':
+        return <Github {...iconProps} />;
+      case 'linkedin':
+        return <Linkedin {...iconProps} />;
+      case 'email':
+        return <Mail {...iconProps} />;
+      default:
+        return null;
+    }
+  };
+
+  const handleSocialClick = (platform: keyof TeamMember['social'], url?: string) => {
+    if (!url) return;
+    
+    if (platform === 'email') {
+      window.location.href = `mailto:${url}`;
+    } else {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  const renderMember = (member: TeamMember, index: number) => (
+    <div 
+      key={`${member.name}-${index}`} 
+      className="bg-card p-6 rounded-xl border border-border hover:shadow-lg transition-all duration-300 group"
+    >
+      {/* Фото участника */}
+      <div className="relative mb-6">
+        <div className="w-24 h-24 mx-auto bg-muted rounded-full flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          {member.photo ? (
+            <img 
+              src={member.photo} 
+              alt={`${member.name} фото`}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                // Fallback при ошибке загрузки изображения
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                target.parentElement!.innerHTML = `
+                  <div class="w-full h-full bg-primary/10 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-primary/50" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                  </div>
+                `;
+              }}
+            />
+          ) : (
+            <User className="w-8 h-8 text-muted-foreground" />
+          )}
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-        {teamMembers.map((member: TeamMember, index: number) => (
-          <div key={index} className="bg-gray-50 p-4 rounded-lg text-center">
-            <div className="w-24 h-24 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center">
-              <img src={member.photo || ""} alt={`${member.name} photo`} className="w-full h-full object-cover rounded-full" />
-            </div>
-            <h3 className="text-lg font-semibold text-gray-900">{member.name}</h3>
-            <p className="text-gray-600 text-sm mb-2">{member.role}</p>
-            <p className="text-gray-500 text-xs mb-2">{member.description}</p>
-            <p className="text-gray-500 text-xs mb-2">{member.experience}</p>
-            <div className="flex justify-center space-x-2">
-              {member.social.includes("github") && (
-                <svg className="w-5 h-5 text-gray-400 hover:text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2zm0 8h-2v-2h2z"/>
-                </svg>
-              )}
-              {member.social.includes("linkedin") && (
-                <svg className="w-5 h-5 text-gray-400 hover:text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2zm0 8h-2v-2h2z"/>
-                </svg>
-              )}
-              {member.social.includes("email") && (
-                <svg className="w-5 h-5 text-gray-400 hover:text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm1-13h-2v6h2zm0 8h-2v-2h2z"/>
-                </svg>
-              )}
-            </div>
-          </div>
-        ))}
+      {/* Информация о участнике */}
+      <div className="text-center space-y-3">
+        <div>
+          <h3 className="text-lg font-semibold text-foreground">
+            {member.name}
+          </h3>
+          <p className="text-primary text-sm font-medium">
+            {member.role}
+          </p>
+        </div>
+        
+        <p className="text-sm text-muted-foreground leading-relaxed">
+          {member.description}
+        </p>
+        
+        <div className="text-xs text-muted-foreground font-medium">
+          {member.experience}
+        </div>
+
+        {/* Навыки */}
+        <div className="flex flex-wrap gap-1 justify-center">
+          {member.skills.slice(0, 3).map((skill, skillIndex) => (
+            <span 
+              key={`${skill}-${skillIndex}`}
+              className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+            >
+              {skill}
+            </span>
+          ))}
+          {member.skills.length > 3 && (
+            <span className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-full">
+              +{member.skills.length - 3}
+            </span>
+          )}
+        </div>
+
+        {/* Социальные сети */}
+        <div className="flex justify-center space-x-3 pt-2">
+          {Object.entries(member.social).map(([platform, url]) => (
+            url && (
+              <button
+                key={platform}
+                onClick={() => handleSocialClick(platform as keyof TeamMember['social'], url)}
+                className="p-2 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground transition-all duration-200 hover:scale-110"
+                title={`Связаться через ${platform}`}
+              >
+                {getSocialIcon(platform)}
+              </button>
+            )
+          ))}
+        </div>
       </div>
     </div>
+  );
+
+  return (
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-4">
+            Наша команда
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Профессионалы с многолетним опытом, готовые воплотить любую вашу идею в жизнь
+          </p>
+        </div>
+        <div className="max-w-6xl mx-auto">
+          {/* Первые 3 участника */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-8 mb-8">
+            {teamMembers.slice(0, 3).map((member, index) => renderMember(member, index))}
+          </div>
+
+          {/* Четвертый участник (центрирован) */}
+          {teamMembers.length > 3 && (
+            <div className="flex justify-center px-4 lg:px-8">
+              <div className="w-full max-w-sm">
+                {teamMembers.slice(3).map((member, index) => renderMember(member, index + 3))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* CTA секция */}
+        <div className="text-center mt-12">
+          <p className="text-muted-foreground mb-6">
+            Готовы работать с нашей командой?
+          </p>
+          <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors font-medium">
+            Обсудить проект
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
