@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import { Header } from "./app/layouts/Header"
+import { Footer } from "./app/layouts/Footer"
 import { RouterProvider } from "./app/providers/RouterProvider"
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
       </Routes>
+      <Footer />
     </>
   )
 }
