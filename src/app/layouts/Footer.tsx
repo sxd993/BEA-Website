@@ -63,7 +63,7 @@ export const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © 2024 DevTeam. Все права защищены.
+              © 2025 bagsTack. Все права защищены.
             </p>
             <div className="flex space-x-6 text-sm text-muted-foreground">
               <a href="#" className="hover:text-foreground transition-colors">
