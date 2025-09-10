@@ -1,0 +1,10 @@
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 0.2s cubic-bezier(.4,0,.2,1), transform 0.2s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: none;
+} 
