@@ -53,7 +53,7 @@ export const FAQ = () => {
                 </button>
                 
                 <div
-                  className={`transition-all duration-300 ease-in-out ${
+                  className={`transition-all duration-500 ease-in-out ${
                     activeIndex === index
                       ? 'max-h-96 opacity-100'
                       : 'max-h-0 opacity-0'

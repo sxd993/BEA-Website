@@ -10,12 +10,22 @@ export const HomePage = () => {
     return (
         <>
             <WelcomeMessage />
-            <WhyChooseUs />
-            <Calculator />
-            <Team />
-            <Stack />
-            <NeededTechnology />
-            <FAQ />
+            <div id="advantages">
+                <WhyChooseUs />
+            </div>
+            <div id="calculator">
+                <Calculator />
+            </div>
+            <div id="team">
+                <Team />
+            </div>
+            <div id="technologies">
+                <Stack />
+                <NeededTechnology />
+            </div>
+            <div id="faq">
+                <FAQ />
+            </div>
         </>
     )
 }

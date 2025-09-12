@@ -14,7 +14,7 @@ export const Footer = () => {
                 <div className="w-10 h-10 bg-foreground rounded-xl flex items-center justify-center">
                   <span className="text-background font-bold text-lg">D</span>
                 </div>
-                <span className="text-2xl font-semibold">DevTeam</span>
+                <span className="text-2xl font-semibold">bagsTack</span>
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-md">
                 Профессиональная команда разработчиков, создающая современные цифровые решения для вашего бизнеса.
@@ -39,7 +39,7 @@ export const Footer = () => {
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-muted-foreground" />
                   <a href="mailto:info@devteam.ru" className="text-foreground hover:text-primary transition-colors">
-                    info@devteam.ru
+                    gurbanovich2014@yandex.ru
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -50,7 +50,7 @@ export const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-foreground">Москва, Россия</span>
+                  <span className="text-foreground">Челябинск, Россия</span>
                 </div>
               </div>
             </div>
