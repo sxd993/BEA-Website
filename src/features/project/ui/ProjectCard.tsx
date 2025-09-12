@@ -1,99 +1,8 @@
-import { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Github, ExternalLink } from 'lucide-react';
-import { PROJECTS } from '../features/project/const/project';
-import useProjectsFilter from '../features/project/hooks/useProjectsFilter';
-import type { Project } from '../shared/types';
+import { Github, ExternalLink } from 'lucide-react';
+import type { Project } from '../../../shared/types';
 
-export const ProjectsList = () => {
-    const {
-        searchTerm,
-        setSearchTerm,
-        selectedCategory,
-        setSelectedCategory,
-        filteredProjects
-    } = useProjectsFilter(PROJECTS);
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    // Получаем уникальные категории
-    const categories = ['Все', ...Array.from(new Set(PROJECTS.map(p => p.category)))];
-
-    return (
-        <section className="min-h-screen py-20 bg-background">
-            <div className="container mx-auto px-4">
-                {/* Заголовок */}
-                <div className="text-center mb-16">
-                    <h1 className="text-3xl lg:text-5xl font-bold mb-4">
-                        Наши проекты
-                    </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        Портфолио наших лучших работ в области веб-разработки и цифровых решений
-                    </p>
-                </div>
-
-                <div className="max-w-6xl mx-auto">
-                    {/* Поиск */}
-                    <div className="mb-8">
-                        <div className="relative max-w-md mx-auto">
-                            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Search className="h-5 w-5 text-muted-foreground" />
-                            </div>
-                            <input
-                                type="text"
-                                placeholder="Поиск проектов..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-12 pr-4 py-3 bg-card border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#b76ec7]/20 focus:border-[#b76ec7] transition-all duration-300"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Фильтр категорий */}
-                    <div className="mb-8">
-                        <div className="flex flex-wrap justify-center gap-3">
-                            {categories.map((category) => (
-                                <button
-                                    key={category}
-                                    onClick={() => setSelectedCategory(category)}
-                                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
-                                        selectedCategory === category
-                                            ? "bg-[#b76ec7] text-white shadow-lg hover:bg-[#b76ec7]/80"
-                                            : "bg-card text-foreground border border-border hover:bg-[#b76ec7] hover:text-white hover:border-[#b76ec7]"
-                                    }`}
-                                >
-                                    {category}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Счетчик проектов */}
-                    <div className="mb-8 text-center">
-                        <p className="text-muted-foreground">
-                            <span className="font-semibold text-foreground">{filteredProjects.length}</span> из {PROJECTS.length} проектов
-                        </p>
-                    </div>
-
-                    {/* Сетка проектов */}
-                    {filteredProjects.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                            {filteredProjects.map((project) => (
-                                <ProjectCard key={project.id} project={project} />
-                            ))}
-                        </div>
-                    ) : (
-                        <EmptyStateCard />
-                    )}
-                </div>
-            </div>
-        </section>
-    );
-};
-
-// Компонент карточки проекта
 interface ProjectCardProps {
     project: Project;
 }
@@ -225,23 +134,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     );
 };
 
-// Компонент пустого состояния
-const EmptyStateCard = () => {
-    return (
-        <div className="col-span-full">
-            <div className="text-center py-16">
-                <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-md mx-auto">
-                    <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Search className="w-8 h-8 text-muted-foreground" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-3">
-                        Проекты не найдены
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                        Попробуйте изменить поисковый запрос или выбрать другую категорию
-                    </p>
-                </div>
-            </div>
-        </div>
-    );
-};
+export default ProjectCard;

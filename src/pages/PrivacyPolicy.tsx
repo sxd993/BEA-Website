@@ -1,0 +1,1 @@
+export { PrivacyPolicy } from '../features/home/components/PrivacyPolicy';

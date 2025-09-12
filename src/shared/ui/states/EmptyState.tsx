@@ -1,14 +1,30 @@
-export const EmptyState = ({ 
-    icon = "🔍", 
+import { Search } from 'lucide-react';
+
+interface EmptyStateProps {
+    title?: string;
+    description?: string;
+    icon?: React.ReactNode;
+}
+
+export const EmptyState: React.FC<EmptyStateProps> = ({ 
     title = "Ничего не найдено", 
-    description = "Попробуйте изменить поисковый запрос или выбрать другую категорию" 
+    description = "Попробуйте изменить поисковый запрос или выбрать другую категорию",
+    icon
 }) => {
     return (
-        <div className="text-center py-12">
-            <div className="bg-white/5 backdrop-blur-[5px] rounded-2xl p-8 border border-black/10">
-                <div className="text-gray-400 text-6xl mb-4">{icon}</div>
-                <h3 className="text-black text-xl font-semibold mb-2">{title}</h3>
-                <p className="text-gray-400">{description}</p>
+        <div className="col-span-full">
+            <div className="text-center py-16">
+                <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-md mx-auto">
+                    <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
+                        {icon || <Search className="w-8 h-8 text-muted-foreground" />}
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                        {title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                        {description}
+                    </p>
+                </div>
             </div>
         </div>
     );
