@@ -1,5 +1,5 @@
-import Vova1 from "../../../assets/Vova1.jpg";
-import Jeka from "../../../assets/Jeka.jpg";
+import Vova1 from "../../../assets/Vladimir.jpg";
+import Jeka from "../../../assets/Evgeniy.jpg";
 import Artem from "../../../assets/Artem.jpg";
 import Artur from "../../../assets/Artur.jpg";
 
@@ -7,7 +7,6 @@ export interface TeamMember {
   name: string;
   role: string;
   description: string;
-  experience: string;
   skills: string[];
   social: {
     github?: string;
@@ -20,52 +19,45 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     name: "Владимир Гурбанович",
-    role: "Lead Frontend Developer",
-    description: "Специализируется на создании современных интерфейсов с использованием React и TypeScript",
-    experience: "7 лет опыта",
-    skills: ["React", "TypeScript", "Next.js"],
+    role: "Fullstack Developer",
+    description: "Создаю современные и масштабируемые веб-приложения от идеи до релиза. В работе использую React, TypeScript, Next.js, Node.js и Python. Более 3 лет опыта в разработке решений, которые работают быстро, стабильно и приносят пользу.",
+    skills: ["React", "TypeScript", "Next.js", "Node.js", "Python"],
     social: {
       github: "https://github.com/alexey-petrov",
-      linkedin: "https://linkedin.com/in/alexey-petrov",
       email: "alexey@bagstack.dev"
     },
     photo: Vova1 // Временная заглушка
   },
   {
     name: "Евгений Бухмиллер",
-    role: "Senior Backend Developer",
-    description: "Эксперт по архитектуре серверных приложений и оптимизации баз данных, любит чистый код",
-    experience: "6 лет опыта",
-    skills: ["Python", "Django", "PostgreSQL"],
+    role: "Frontend Developer",
+    description: "Создаю современные и отзывчивые интерфейсы с акцентом на удобство и скорость. В работе использую React, TypeScript и Next.js. Более 3 лет опыта в разработке UI, которые радуют пользователей.",
+    skills: ["React", "TypeScript", "Next.js"],
     social: {
       github: "https://github.com/maria-ivanova",
-      linkedin: "https://linkedin.com/in/maria-ivanova",
       email: "maria@bagstack.dev"
     },
     photo: Jeka // Временная заглушка
   },
   {
     name: "Сафонов Артем",
-    role: "Mobile Developer",
-    description: "Создает нативные и кроссплатформенные мобильные приложения высокого качества",
-    experience: "5 лет опыта",
-    skills: ["React Native", "Flutter", "Swift"],
+    role: "Frontend Developer",
+    description: "Создаю быстрые и стильные интерфейсы с упором на дизайн и адаптивность. В работе использую React, TypeScript и Tailwind CSS, чтобы проекты выглядели современно и работали плавно на всех устройствах.",
+    skills: ["React", "TypeScript", "Tailwind CSS"],
     social: {
       github: "https://github.com/dmitry-sidorov",
-      linkedin: "https://linkedin.com/in/dmitry-sidorov",
       email: "dmitry@bagstack.dev"
     },
     photo: Artem // Временная заглушка
   },
   {
     name: "Алеев Артур",
-    role: "UI/UX Designer",
-    description: "Создает интуитивные пользовательские интерфейсы и проводит UX-исследования",
-    experience: "4 года опыта",
-    skills: ["Figma", "Adobe XD", "Prototyping"],
+    role: "Backend Developer",
+    description: "Создаю надёжные серверные системы и API от архитектуры до деплоя. Уверенно работаю с Java, Node.js и JavaScript. Более 3 лет опыта в построении решений, которые выдерживают нагрузку и растут вместе с бизнесом.",
+    skills: ["Java", "Node.js", "JavaScript"],
     social: {
-      linkedin: "https://linkedin.com/in/anna-kozlova",
-      email: "anna@bagstack.dev"
+      github: "https://github.com/artur-aleev",
+      email: "arturdudarev60@gmail.com"
     },
     photo: Artur // Временная заглушка
   }
