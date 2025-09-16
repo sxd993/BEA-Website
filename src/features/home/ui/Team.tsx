@@ -4,7 +4,7 @@ import { teamMembers, type TeamMember } from '../const/teamMembers';
 export const Team = () => {
   const getSocialIcon = (platform: string) => {
     const iconProps = { className: "w-5 h-5", strokeWidth: 1.5 };
-    
+
     switch (platform) {
       case 'github':
         return <Github {...iconProps} />;
@@ -19,7 +19,7 @@ export const Team = () => {
 
   const handleSocialClick = (platform: keyof TeamMember['social'], url?: string) => {
     if (!url) return;
-    
+
     if (platform === 'email') {
       window.location.href = `mailto:${url}`;
     } else {
@@ -28,16 +28,16 @@ export const Team = () => {
   };
 
   const renderMember = (member: TeamMember, index: number) => (
-    <div 
-      key={`${member.name}-${index}`} 
+    <div
+      key={`${member.name}-${index}`}
       className="bg-card p-6 rounded-xl border border-border hover:shadow-lg transition-all duration-300 group"
     >
       {/* Фото участника */}
       <div className="relative mb-6">
         <div className="w-24 h-24 mx-auto bg-muted rounded-full flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
           {member.photo ? (
-            <img 
-              src={member.photo} 
+            <img
+              src={member.photo}
               alt={`${member.name} фото`}
               className="w-full h-full object-cover"
               onError={(e) => {
@@ -69,7 +69,7 @@ export const Team = () => {
             {member.role}
           </p>
         </div>
-        
+
         <p className="text-sm text-muted-foreground leading-relaxed">
           {member.description}
         </p>
@@ -77,7 +77,7 @@ export const Team = () => {
         {/* Навыки */}
         <div className="flex flex-wrap gap-1 justify-center text-[#b76ec7]">
           {member.skills.slice(0, 3).map((skill, skillIndex) => (
-            <span 
+            <span
               key={`${skill}-${skillIndex}`}
               className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
             >
@@ -111,7 +111,7 @@ export const Team = () => {
   );
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-10 bg-background border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-5xl font-bold mb-4">

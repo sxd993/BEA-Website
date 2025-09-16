@@ -68,9 +68,6 @@ export const Header = () => {
           onClick={handleLogoClick}
           className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
         >
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">B</span>
-          </div>
           <span className="text-xl font-semibold">bagsTack</span>
         </button>
 

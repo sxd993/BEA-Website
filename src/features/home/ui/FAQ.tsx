@@ -5,14 +5,13 @@ import { faqData } from '../const/faqData';
 export const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  // Временные данные для демонстрации (заменить на импорт из faqData)
 
   const toggleItem = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-10 bg-background border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-foreground">
@@ -35,29 +34,26 @@ export const FAQ = () => {
                   className="w-full px-6 py-5 text-left flex items-center justify-between focus:outline-none group"
                 >
                   <span
-                    className={`text-lg font-medium transition-colors duration-200 ${
-                      activeIndex === index 
-                        ? 'text-[#b76ec7]' 
+                    className={`text-lg font-medium transition-colors duration-200 ${activeIndex === index
+                        ? 'text-[#b76ec7]'
                         : 'text-foreground group-hover:text-[#b76ec7]'
-                    }`}
+                      }`}
                   >
                     {item.question}
                   </span>
                   <ChevronDown
-                    className={`w-5 h-5 transition-all duration-200 ${
-                      activeIndex === index
+                    className={`w-5 h-5 transition-all duration-200 ${activeIndex === index
                         ? 'transform rotate-180 text-[#b76ec7]'
                         : 'text-muted-foreground group-hover:text-[#b76ec7]'
-                    }`}
+                      }`}
                   />
                 </button>
-                
+
                 <div
-                  className={`transition-all duration-500 ease-in-out ${
-                    activeIndex === index
+                  className={`transition-all duration-500 ease-in-out ${activeIndex === index
                       ? 'max-h-96 opacity-100'
                       : 'max-h-0 opacity-0'
-                  } overflow-hidden`}
+                    } overflow-hidden`}
                 >
                   <div className="px-6 pb-5">
                     <p className="text-muted-foreground leading-relaxed">

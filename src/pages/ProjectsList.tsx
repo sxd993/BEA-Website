@@ -22,7 +22,7 @@ export const ProjectsList = () => {
     const categories = ['Все', ...Array.from(new Set(PROJECTS.map(p => p.category)))];
 
     return (
-        <section className="min-h-screen py-20 bg-background">
+        <section className="min-h-screen py-10 bg-background">
             <div className="container mx-auto px-4">
                 {/* Заголовок */}
                 <div className="text-center mb-16">
@@ -58,11 +58,10 @@ export const ProjectsList = () => {
                                 <button
                                     key={category}
                                     onClick={() => setSelectedCategory(category)}
-                                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
-                                        selectedCategory === category
+                                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${selectedCategory === category
                                             ? "bg-[#b76ec7] text-white shadow-lg hover:bg-[#b76ec7]/80"
                                             : "bg-card text-foreground border border-border hover:bg-[#b76ec7] hover:text-white hover:border-[#b76ec7]"
-                                    }`}
+                                        }`}
                                 >
                                     {category}
                                 </button>
@@ -110,8 +109,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {/* Изображение проекта */}
             <div className="relative h-48 overflow-hidden">
                 {project.image ? (
-                    <img 
-                        src={project.image} 
+                    <img
+                        src={project.image}
                         alt={project.name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -122,7 +121,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                         </div>
                     </div>
                 )}
-                
+
                 {/* Метка "Рекомендуемый" */}
                 {project.featured && (
                     <div className="absolute top-4 left-4">
@@ -146,14 +145,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                     <h3 className="text-xl font-semibold text-foreground group-hover:text-[#b76ec7] transition-colors duration-300 mb-2">
                         {project.name}
                     </h3>
-                    
+
                     {project.organization && (
                         <div className="text-[#b76ec7] font-medium text-sm mb-2">
                             {project.organization}
                         </div>
                     )}
                 </div>
-                
+
                 {project.description && (
                     <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
                         {project.description}
@@ -189,14 +188,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
                 {/* Кнопки действий */}
                 <div className="flex gap-3">
-                    <button 
+                    <button
                         onClick={handleViewDetails}
                         className="flex-1 bg-[#b76ec7] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#b76ec7]/80 transition-colors duration-200"
                     >
                         Подробнее
                     </button>
                     {project.github && (
-                        <button 
+                        <button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 window.open(project.github, '_blank');
@@ -208,7 +207,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                         </button>
                     )}
                     {project.demo && (
-                        <button 
+                        <button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 window.open(project.demo, '_blank');

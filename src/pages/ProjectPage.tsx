@@ -6,7 +6,7 @@ import { PROJECTS } from '../features/project/const/project';
 export const ProjectPage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -15,7 +15,7 @@ export const ProjectPage = () => {
 
     if (!project) {
         return (
-            <div className="min-h-screen py-20 bg-background">
+            <div className="min-h-screen py-10 bg-background">
                 <div className="container mx-auto px-4 text-center">
                     <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-md mx-auto">
                         <h1 className="text-2xl font-bold text-foreground mb-4">
@@ -37,7 +37,7 @@ export const ProjectPage = () => {
     }
 
     return (
-        <div className="min-h-screen py-20 bg-background">
+        <div className="min-h-screen py-10 bg-background">
             <div className="container mx-auto px-4">
                 {/* Кнопка назад */}
                 <button
@@ -61,13 +61,13 @@ export const ProjectPage = () => {
                                 </span>
                             )}
                         </div>
-                        
+
                         {project.organization && (
                             <p className="text-xl text-[#b76ec7] font-semibold mb-4">
                                 {project.organization}
                             </p>
                         )}
-                        
+
                         <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                             {project.description}
                         </p>
@@ -77,8 +77,8 @@ export const ProjectPage = () => {
                     <div className="mb-12">
                         <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-2xl">
                             {project.image ? (
-                                <img 
-                                    src={project.image} 
+                                <img
+                                    src={project.image}
                                     alt={project.name}
                                     className="w-full h-full object-cover"
                                 />
@@ -142,7 +142,7 @@ export const ProjectPage = () => {
                                 <h3 className="text-lg font-semibold text-foreground mb-6">
                                     Детали проекта
                                 </h3>
-                                
+
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
@@ -153,7 +153,7 @@ export const ProjectPage = () => {
                                             <p className="font-medium text-foreground">{project.status}</p>
                                         </div>
                                     </div>
-                                    
+
                                     <div className="flex items-center gap-3">
                                         <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
                                             <Users className="w-5 h-5 text-muted-foreground" />
@@ -218,17 +218,14 @@ export const ProjectPage = () => {
                                 <p className="text-muted-foreground text-sm mb-4">
                                     Свяжитесь с нами, чтобы обсудить создание похожего решения для вашего бизнеса
                                 </p>
-                                <button
-                                    onClick={() => {
-                                        const element = document.getElementById('contact');
-                                        if (element) {
-                                            element.scrollIntoView({ behavior: 'smooth' });
-                                        }
-                                    }}
+                                <a
+                                    href="https://t.me/sxdddddddddd"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="w-full bg-[#b76ec7] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#b76ec7]/80 transition-colors duration-200"
                                 >
                                     Обсудить проект
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
