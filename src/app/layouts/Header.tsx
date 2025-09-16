@@ -1,38 +1,23 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useScrollNavigation } from "../../features/home/hooks/useScrollNavigation"; // Укажите путь к хуку
 
 export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const { scrollToSection } = useScrollNavigation();
 
-  // Функция для плавной прокрутки к секции
-  const scrollToSection = (sectionId: string) => {
-    // Если не на главной странице, сначала переходим на неё
-    if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: sectionId } });
-      return;
-    }
 
-    // Если уже на главной, прокручиваем к секции
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80; // Высота фиксированного хедера
-      const elementPosition = element.offsetTop - headerHeight;
-      
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
-    }
-    
-    // Закрываем мобильное меню
-    setIsMobileMenuOpen(false);
-  };
 
   // Функция для обработки клика по логотипу
   const handleLogoClick = () => {
+    // Используйте scrollToTop из хука:
+    // scrollToTop();
+    
+    // Временная реализация (удалить после подключения хука):
     if (location.pathname !== '/') {
       navigate('/');
     } else {
@@ -49,13 +34,13 @@ export const Header = () => {
     if (location.state?.scrollTo) {
       const timer = setTimeout(() => {
         scrollToSection(location.state.scrollTo);
-      }, 100); // Небольшая задержка для загрузки компонентов
+      }, 100);
       
       return () => clearTimeout(timer);
     }
   }, [location.state]);
 
-  // Закрытие мобильного меню при клике вне его
+  // Закрытие мобильного меню при изменении размера экрана
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -156,11 +141,15 @@ export const Header = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full px-4 py-3 text-center text-foreground border border-border rounded-lg hover:bg-[#b76ec7] hover:text-white hover:border-[#b76ec7] transition-all duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Связаться
               </a>
               <button 
-                onClick={() => navigate('/projects')}
+                onClick={() => {
+                  navigate('/projects');
+                  setIsMobileMenuOpen(false);
+                }}
                 className="block w-full px-4 py-3 text-center bg-[#b76ec7] text-white rounded-lg hover:bg-[#b76ec7]/80 transition-colors duration-200"
               >
                 Наши проекты

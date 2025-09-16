@@ -73,10 +73,6 @@ export const Team = () => {
         <p className="text-sm text-muted-foreground leading-relaxed">
           {member.description}
         </p>
-        
-        <div className="text-xs text-muted-foreground font-medium">
-          {member.experience}
-        </div>
 
         {/* Навыки */}
         <div className="flex flex-wrap gap-1 justify-center text-[#b76ec7]">
