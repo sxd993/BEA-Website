@@ -1,7 +1,8 @@
 import type { Project } from "../../../shared/types";
-import financeIMG from '../../../assets/projects/финансы.jpg'
-import shopPNG from '../../../assets/projects/айфоны.jpg'
-import bipIMG from '../../../assets/projects/бип.jpg'
+import evacuatorIMG from '../../../assets/projects/эвакуатор.png'
+import nnvIMG from '../../../assets/projects/айфоны.png'
+import bipIMG from '../../../assets/projects/бип.png'
+import visagistIMG from '../../../assets/projects/визажист.png'
 
 export const PROJECTS: Project[] = [
     {
@@ -11,7 +12,7 @@ export const PROJECTS: Project[] = [
         tech: ['React', 'Tailwind CSS', 'Python', 'MySQL'],
         github: 'https://github.com/sxd993/finance-tracker',
         demo: '',
-        image: financeIMG,
+        image: evacuatorIMG,
         category: 'Веб-приложение',
         featured: true,
         description: 'Современное веб-приложение для управления личными финансами с интуитивно понятным интерфейсом и мобильной адаптацией.',
@@ -34,7 +35,7 @@ export const PROJECTS: Project[] = [
         tech: ['React', 'CSS'],
         github: 'https://github.com/sxd993/cinema-app/tree/main/src',
         demo: '',
-        image: shopPNG,
+        image: nnvIMG,
         category: 'Веб-приложение',
         featured: false,
         description: 'Современное веб-приложение для просмотра информации о фильмах с возможностью поиска, фильтрации и создания списков избранного.',
@@ -58,6 +59,30 @@ export const PROJECTS: Project[] = [
         github: 'https://github.com/sxd993/25-NextJS',
         demo: '',
         image: bipIMG,
+        category: 'Веб-приложение',
+        featured: true,
+        description: 'Интернет-магазин еды с возможностью онлайн заказа, корзиной покупок и интеграцией платежных систем.',
+        details: 'Полнофункциональный e-commerce сайт для заказа еды с современным дизайном, построенный на Next.js для оптимальной производительности.',
+        status: 'Завершен',
+        features: [
+            'Каталог продуктов с фильтрацией',
+            'Корзина покупок с расчетом стоимости',
+            'Система регистрации и авторизации',
+            'Оформление заказов',
+            'Адаптивный дизайн',
+            'SEO оптимизация',
+            'Server-side rendering'
+        ],
+        challenges: 'Реализация сложной логики корзины покупок, интеграция платежных систем и оптимизация SEO для Next.js приложения.'
+    },
+    {
+        id: 4,
+        name: 'Салон красоты',
+        organization: 'Коммерческий проект',
+        tech: ['TypeScript', 'Tailwind CSS'],
+        github: 'https://github.com/6ubble/visagiste',
+        demo: '',
+        image: visagistIMG,
         category: 'Веб-приложение',
         featured: true,
         description: 'Интернет-магазин еды с возможностью онлайн заказа, корзиной покупок и интеграцией платежных систем.',

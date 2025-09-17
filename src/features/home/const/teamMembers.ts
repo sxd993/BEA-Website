@@ -19,46 +19,50 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     name: "Владимир Гурбанович",
-    role: "Fullstack Developer",
-    description: "Создаю современные и масштабируемые веб-приложения от идеи до релиза. В работе использую React, TypeScript, Next.js, Node.js и Python. Более 3 лет опыта в разработке решений, которые работают быстро, стабильно и приносят пользу.",
+    role: "Lead Fullstack Developer",
+    description:
+      "Разрабатываю масштабируемые веб-приложения от интерфейса до серверной логики. Использую React, TypeScript, Next.js, Node.js и Python. Более 3 лет создаю решения, которые стабильны, быстры и удобны в поддержке.",
     skills: ["React", "TypeScript", "Next.js", "Node.js", "Python"],
     social: {
-      github: "https://github.com/alexey-petrov",
-      email: "alexey@bagstack.dev"
+      github: "https://github.com/sxd993",
+      email: "gurbanovich2014@yandex.ru",
     },
-    photo: Vova1 // Временная заглушка
+    photo: Vova1,
   },
   {
     name: "Евгений Бухмиллер",
     role: "Frontend Developer",
-    description: "Создаю современные и отзывчивые интерфейсы с акцентом на удобство и скорость. В работе использую React, TypeScript и Next.js. Более 3 лет опыта в разработке UI, которые радуют пользователей.",
+    description:
+      "Специализируюсь на создании удобных и отзывчивых интерфейсов. В работе опираюсь на React, TypeScript и Next.js. Более 3 лет опыта в разработке UI, где красота сочетается с высокой скоростью работы.",
     skills: ["React", "TypeScript", "Next.js"],
     social: {
-      github: "https://github.com/maria-ivanova",
-      email: "maria@bagstack.dev"
+      github: "https://github.com/shibapc",
+      email: "evgbukhmiller@gmail.com",
     },
-    photo: Jeka // Временная заглушка
+    photo: Jeka,
   },
   {
     name: "Сафонов Артем",
     role: "Frontend Developer",
-    description: "Создаю быстрые и стильные интерфейсы с упором на дизайн и адаптивность. В работе использую React, TypeScript и Tailwind CSS, чтобы проекты выглядели современно и работали плавно на всех устройствах.",
+    description:
+      "Делаю интерфейсы быстрыми, стильными и адаптивными. Использую React, TypeScript и Tailwind CSS, чтобы сайты и сервисы одинаково хорошо выглядели и работали на всех устройствах.",
     skills: ["React", "TypeScript", "Tailwind CSS"],
     social: {
-      github: "https://github.com/dmitry-sidorov",
-      email: "dmitry@bagstack.dev"
+      github: "https://github.com/6ubble",
+      email: "bestartiom@yandex.ru",
     },
-    photo: Artem // Временная заглушка
+    photo: Artem,
   },
   {
     name: "Алеев Артур",
     role: "Backend Developer",
-    description: "Создаю надёжные серверные системы и API от архитектуры до деплоя. Уверенно работаю с Java, Node.js и JavaScript. Более 3 лет опыта в построении решений, которые выдерживают нагрузку и растут вместе с бизнесом.",
+    description:
+      "Строю надёжные серверные системы и API от архитектуры до развёртывания. Владею Java, Node.js и JavaScript. Более 3 лет опыта в создании backend-решений, которые выдерживают нагрузку и легко масштабируются.",
     skills: ["Java", "Node.js", "JavaScript"],
     social: {
       github: "https://github.com/artur-aleev",
-      email: "arturdudarev60@gmail.com"
+      email: "arturdudarev60@gmail.com",
     },
-    photo: Artur // Временная заглушка
-  }
+    photo: Artur,
+  },
 ];

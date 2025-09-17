@@ -7,7 +7,7 @@ export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   const { scrollToSection } = useScrollNavigation();
 
 
@@ -16,7 +16,7 @@ export const Header = () => {
   const handleLogoClick = () => {
     // Используйте scrollToTop из хука:
     // scrollToTop();
-    
+
     // Временная реализация (удалить после подключения хука):
     if (location.pathname !== '/') {
       navigate('/');
@@ -35,7 +35,7 @@ export const Header = () => {
       const timer = setTimeout(() => {
         scrollToSection(location.state.scrollTo);
       }, 100);
-      
+
       return () => clearTimeout(timer);
     }
   }, [location.state]);
@@ -61,10 +61,10 @@ export const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border border-gray-200 z-50">
+    <header className="sticky top-0 bg-white border-gray-200 z-50">
       <div className="container mx-auto px-4 py-6 flex items-center justify-between">
         {/* Логотип */}
-        <button 
+        <button
           onClick={handleLogoClick}
           className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
         >
@@ -87,7 +87,7 @@ export const Header = () => {
 
         {/* Desktop CTA Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <a 
+          <a
             href="https://t.me/sxdddddddddd"
             target="_blank"
             rel="noopener noreferrer"
@@ -95,7 +95,7 @@ export const Header = () => {
           >
             Связаться
           </a>
-          <button 
+          <button
             onClick={() => navigate('/projects')}
             className="px-4 py-2 bg-[#b76ec7] text-white rounded-lg hover:bg-[#b76ec7]/80 transition-colors duration-200"
           >
@@ -104,7 +104,7 @@ export const Header = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
           aria-label="Открыть меню"
@@ -119,21 +119,41 @@ export const Header = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-200 bg-background/95 backdrop-blur">
-          <nav className="container mx-auto px-4 py-4 space-y-4">
+        <div className="fixed inset-0 z-50 bg-white flex flex-col">
+          <div className="flex justify-between px-4 py-6">
+            {/* Логотип */}
+            <button
+              onClick={handleLogoClick}
+              className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+            >
+              <span className="text-xl font-semibold">bagsTack</span>
+            </button>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              aria-label="Закрыть меню"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+
+          <nav className="flex-1 flex flex-col justify-center items-center space-y-6">
             {navigationItems.map((item) => (
               <button
                 key={item.sectionId}
-                onClick={() => scrollToSection(item.sectionId)}
-                className="block w-full text-left py-3 px-4 text-muted-foreground hover:text-foreground hover:bg-gray-50 rounded-lg transition-all duration-200"
+                onClick={() => {
+                  scrollToSection(item.sectionId);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="text-xl text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
                 {item.label}
               </button>
             ))}
-            
+
             {/* Mobile CTA Buttons */}
-            <div className="space-y-3 pt-4 border-t border-gray-200">
-              <a 
+            <div className="mt-8 flex flex-col space-y-4 w-2/3">
+              <a
                 href="https://t.me/sxdddddddddd"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -142,7 +162,7 @@ export const Header = () => {
               >
                 Связаться
               </a>
-              <button 
+              <button
                 onClick={() => {
                   navigate('/projects');
                   setIsMobileMenuOpen(false);
@@ -155,6 +175,7 @@ export const Header = () => {
           </nav>
         </div>
       )}
+
     </header>
   );
 };

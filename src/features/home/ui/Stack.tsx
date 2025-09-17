@@ -1,10 +1,10 @@
-import { Code, Server, Smartphone, Cpu, CheckSquare } from "lucide-react";
+import { Code, Server, CheckSquare } from "lucide-react";
 
 const techCategories = [
   {
     title: "Frontend",
     icon: Code,
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js", "Angular"],
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     title: "Backend",
@@ -12,19 +12,9 @@ const techCategories = [
     technologies: ["Node.js", "Python", "Django", "FastAPI", "PostgreSQL", "MongoDB"],
   },
   {
-    title: "Mobile",
-    icon: Smartphone,
-    technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Expo"],
-  },
-  {
-    title: "DevOps",
-    icon: Cpu,
-    technologies: ["Docker", "AWS", "Vercel", "CI/CD", "Kubernetes", "Nginx"],
-  },
-  {
     title: "Тестирование",
     icon: CheckSquare,
-    technologies: ["Jest", "Cypress", "Playwright", "pytest", "Selenium"],
+    technologies: ["Jest", "Cypress", "Playwright"],
   },
 ];
 

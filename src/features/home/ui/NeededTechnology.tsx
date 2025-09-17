@@ -6,7 +6,7 @@ export const NeededTechnology = () => {
   ];
 
   return (
-    <section className="py-10 bg-background border-b border-gray-200">
+    <section className="flex flex-col items-center justify-center bg-white p-6 md:p-10 rounded-lg shadow-lg my-10 max-w-[80%] mx-auto border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Основная карточка */}

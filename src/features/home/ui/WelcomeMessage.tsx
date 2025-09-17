@@ -4,7 +4,7 @@ export const WelcomeMessage = () => {
   const { scrollToSection } = useScrollNavigation();
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between bg-white p-10 md:p-8 rounded-lg max-w-6xl mx-auto border-b border-gray-200 gap-8 lg:gap-16">
+    <div className="flex flex-col items-center justify-center bg-white p-6 md:p-10 rounded-lg shadow-lg my-10 max-w-[80%] mx-auto border-b border-gray-200">
       {/* Text Section */}
       <div className="text-center lg:text-left flex-1 min-w-0">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
