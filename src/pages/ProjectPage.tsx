@@ -17,7 +17,7 @@ export const ProjectPage = () => {
         return (
             <div className="min-h-screen py-10 bg-background">
                 <div className="container mx-auto px-4 text-center">
-                    <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-md mx-auto">
+                    <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-4xl mx-auto">
                         <h1 className="text-2xl font-bold text-foreground mb-4">
                             Проект не найден
                         </h1>
@@ -52,7 +52,7 @@ export const ProjectPage = () => {
                     {/* Заголовок проекта */}
                     <div className="text-center mb-12">
                         <div className="flex items-center justify-center gap-4 mb-4">
-                            <h1 className="text-3xl lg:text-5xl font-bold text-foreground">
+                            <h1 className="text-3xl md:text-5xl font-bold text-foreground">
                                 {project.name}
                             </h1>
                             {project.featured && (
@@ -92,9 +92,9 @@ export const ProjectPage = () => {
                         </div>
                     </div>
 
-                    <div className="grid lg:grid-cols-3 gap-12">
+                    <div className="grid md:grid-cols-3 gap-12">
                         {/* Основная информация */}
-                        <div className="lg:col-span-2">
+                        <div className="md:col-span-2">
                             {/* Описание */}
                             <div className="bg-card p-8 rounded-xl border border-border shadow-lg mb-8">
                                 <h2 className="text-2xl font-bold text-foreground mb-6">

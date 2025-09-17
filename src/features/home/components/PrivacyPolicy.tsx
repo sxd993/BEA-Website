@@ -27,7 +27,7 @@ export const PrivacyPolicy = () => {
                         <div className="w-16 h-16 bg-[#b76ec7] rounded-full flex items-center justify-center mx-auto mb-6">
                             <Shield className="w-8 h-8 text-white" />
                         </div>
-                        <h1 className="text-3xl lg:text-5xl font-bold mb-4">
+                        <h1 className="text-3xl md:text-5xl font-bold mb-4">
                             Политика конфиденциальности
                         </h1>
                         <p className="text-xl text-muted-foreground">

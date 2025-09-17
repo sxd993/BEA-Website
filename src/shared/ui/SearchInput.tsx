@@ -13,7 +13,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 }) => {
     return (
         <div className="mb-8">
-            <div className="relative max-w-md mx-auto">
+            <div className="relative max-w-4xl mx-auto">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <Search className="h-5 w-5 text-muted-foreground" />
                 </div>

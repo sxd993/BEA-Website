@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
-* {
-    font-family: 'Montserrat';
-  }
+html, body {
+    font-family: 'Montserrat', sans-serif;
+}
 
+
+ .logo-font {
+    font-family: "Nosifer", sans-serif;
+    font-style: normal;
+  }

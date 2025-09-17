@@ -14,7 +14,7 @@ export const FAQ = () => {
     <section className="flex flex-col items-center justify-center bg-white p-6 md:p-10 rounded-lg shadow-lg my-10 max-w-[80%] mx-auto border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-foreground">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
             Часто задаваемые вопросы
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

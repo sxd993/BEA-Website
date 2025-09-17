@@ -114,7 +114,7 @@ export const Team = () => {
     <section className="py-10 bg-background border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-3xl text-5xl font-bold mb-4">
             Наша команда
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -123,14 +123,14 @@ export const Team = () => {
         </div>
         <div className="max-w-6xl mx-auto">
           {/* Первые 3 участника */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:grid-cols-3 gap-8 px-4 md:px-8 mb-8">
             {teamMembers.slice(0, 3).map((member, index) => renderMember(member, index))}
           </div>
 
           {/* Четвертый участник (центрирован) */}
           {teamMembers.length > 3 && (
-            <div className="flex justify-center px-4 lg:px-8">
-              <div className="w-full max-w-sm">
+            <div className="flex justify-center px-4 md:px-8">
+              <div className="w-full max-w-4xl">
                 {teamMembers.slice(3).map((member, index) => renderMember(member, index + 3))}
               </div>
             </div>

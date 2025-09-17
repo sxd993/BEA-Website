@@ -26,7 +26,7 @@ export const ProjectsList = () => {
             <div className="container mx-auto px-4">
                 {/* Заголовок */}
                 <div className="text-center mb-16">
-                    <h1 className="text-3xl lg:text-5xl font-bold mb-4">
+                    <h1 className="text-3xl md:text-5xl font-bold mb-4">
                         Наши проекты
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -37,7 +37,7 @@ export const ProjectsList = () => {
                 <div className="max-w-6xl mx-auto">
                     {/* Поиск */}
                     <div className="mb-8">
-                        <div className="relative max-w-md mx-auto">
+                        <div className="relative max-w-4xl mx-auto">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <Search className="h-5 w-5 text-muted-foreground" />
                             </div>
@@ -78,7 +78,7 @@ export const ProjectsList = () => {
 
                     {/* Сетка проектов */}
                     {filteredProjects.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 md:grid-cols-2 gap-8">
                             {filteredProjects.map((project) => (
                                 <ProjectCard key={project.id} project={project} />
                             ))}
@@ -229,7 +229,7 @@ const EmptyStateCard = () => {
     return (
         <div className="col-span-full">
             <div className="text-center py-16">
-                <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-md mx-auto">
+                <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-4xl mx-auto">
                     <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
                         <Search className="w-8 h-8 text-muted-foreground" />
                     </div>

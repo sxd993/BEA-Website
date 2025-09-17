@@ -13,7 +13,7 @@ export const NeededTechnology = () => {
           <div className="bg-card p-8 md:p-12 rounded-xl border border-gray-300 shadow-lg">
             <div className="text-center space-y-6">
               {/* Заголовок */}
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 Не нашли нужную технологию?
               </h2>
 

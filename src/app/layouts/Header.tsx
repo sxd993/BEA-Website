@@ -1,7 +1,8 @@
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+ 
 import { useScrollNavigation } from "../../features/home/hooks/useScrollNavigation"; // Укажите путь к хуку
+import { MobileMenu, MobileMenuButton } from "./MobileMenu";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -61,18 +62,18 @@ export const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 bg-white border-gray-200 z-50">
-      <div className="container mx-auto px-4 py-6 flex items-center justify-between">
+    <header className="sticky top-0 bg-white border-b border-gray-300 z-50">
+      <div className="container mx-auto px-4 py-4 sm:py-6 flex items-center justify-between sm:justify-center xl:justify-between gap-4 sm:gap-6 sm:flex-wrap xl:flex-nowrap">
         {/* Логотип */}
         <button
           onClick={handleLogoClick}
-          className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+          className="flex items-center space-x-2 hover:opacity-80 transition-opacity sm:order-1 sm:basis-full sm:justify-center sm:mx-auto xl:order-none xl:basis-auto"
         >
-          <span className="text-xl font-semibold">bagsTack</span>
+          <span className="text-xl logo-font">bagsTack</span>
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden sm:flex items-center gap-6 sm:order-3 sm:w-full sm:justify-center xl:order-none xl:flex-1 xl:justify-center">
           {navigationItems.map((item) => (
             <button
               key={item.sectionId}
@@ -86,94 +87,39 @@ export const Header = () => {
         </nav>
 
         {/* Desktop CTA Buttons */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden sm:flex items-center gap-3 sm:gap-4 sm:order-2 sm:w-full sm:justify-center xl:order-none xl:w-auto xl:justify-start">
+          <button
+            onClick={() => navigate('/projects')}
+            className="inline-flex items-center justify-center h-9 min-w-[140px] px-4 text-sm bg-[#b76ec7] text-white rounded-lg hover:bg-[#b76ec7]/80 transition-colors duration-200 whitespace-nowrap"
+          >
+            Наши проекты
+          </button>
           <a
             href="https://t.me/sxdddddddddd"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 text-foreground border border-border rounded-lg hover:bg-[#b76ec7] hover:text-white hover:border-[#b76ec7] transition-all duration-300"
+            className="inline-flex items-center justify-center h-9 min-w-[140px] px-4 text-sm text-foreground border border-border rounded-lg hover:bg-[#b76ec7] hover:text-white hover:border-[#b76ec7] transition-all duration-300 whitespace-nowrap"
           >
             Связаться
           </a>
-          <button
-            onClick={() => navigate('/projects')}
-            className="px-4 py-2 bg-[#b76ec7] text-white rounded-lg hover:bg-[#b76ec7]/80 transition-colors duration-200"
-          >
-            Наши проекты
-          </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
-          aria-label="Открыть меню"
-        >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
-        </button>
+        <MobileMenuButton
+          isOpen={isMobileMenuOpen}
+          onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        />
       </div>
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-white flex flex-col">
-          <div className="flex justify-between px-4 py-6">
-            {/* Логотип */}
-            <button
-              onClick={handleLogoClick}
-              className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
-            >
-              <span className="text-xl font-semibold">bagsTack</span>
-            </button>
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              aria-label="Закрыть меню"
-            >
-              <X className="h-6 w-6" />
-            </button>
-          </div>
-
-          <nav className="flex-1 flex flex-col justify-center items-center space-y-6">
-            {navigationItems.map((item) => (
-              <button
-                key={item.sectionId}
-                onClick={() => {
-                  scrollToSection(item.sectionId);
-                  setIsMobileMenuOpen(false);
-                }}
-                className="text-xl text-muted-foreground hover:text-foreground transition-colors duration-200"
-              >
-                {item.label}
-              </button>
-            ))}
-
-            {/* Mobile CTA Buttons */}
-            <div className="mt-8 flex flex-col space-y-4 w-2/3">
-              <a
-                href="https://t.me/sxdddddddddd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full px-4 py-3 text-center text-foreground border border-border rounded-lg hover:bg-[#b76ec7] hover:text-white hover:border-[#b76ec7] transition-all duration-300"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Связаться
-              </a>
-              <button
-                onClick={() => {
-                  navigate('/projects');
-                  setIsMobileMenuOpen(false);
-                }}
-                className="block w-full px-4 py-3 text-center bg-[#b76ec7] text-white rounded-lg hover:bg-[#b76ec7]/80 transition-colors duration-200"
-              >
-                Наши проекты
-              </button>
-            </div>
-          </nav>
-        </div>
+        <MobileMenu
+          navigationItems={navigationItems}
+          onClose={() => setIsMobileMenuOpen(false)}
+          onLogoClick={handleLogoClick}
+          onNavigateProjects={() => navigate('/projects')}
+          onNavigateToSection={scrollToSection}
+        />
       )}
 
     </header>

@@ -14,7 +14,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
     return (
         <div className="col-span-full">
             <div className="text-center py-16">
-                <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-md mx-auto">
+                <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-4xl mx-auto">
                     <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
                         {icon || <Search className="w-8 h-8 text-muted-foreground" />}
                     </div>
