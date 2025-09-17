@@ -42,7 +42,7 @@ export const teamMembers: TeamMember[] = [
     photo: Jeka,
   },
   {
-    name: "Сафонов Артем",
+    name: "Артем Сафонов",
     role: "Frontend Developer",
     description:
       "Делаю интерфейсы быстрыми, стильными и адаптивными. Использую React, TypeScript и Tailwind CSS, чтобы сайты и сервисы одинаково хорошо выглядели и работали на всех устройствах.",
@@ -54,7 +54,7 @@ export const teamMembers: TeamMember[] = [
     photo: Artem,
   },
   {
-    name: "Алеев Артур",
+    name: "Артур Алеев",
     role: "Backend Developer",
     description:
       "Строю надёжные серверные системы и API от архитектуры до развёртывания. Владею Java, Node.js и JavaScript. Более 3 лет опыта в создании backend-решений, которые выдерживают нагрузку и легко масштабируются.",
