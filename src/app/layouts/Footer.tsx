@@ -12,7 +12,7 @@ export const Footer = () => {
             {/* Company Info */}
             <div className="max-w-sm space-y-6">
               <div className="flex items-center justify-center space-x-2">
-                <span className="text-2xl font-semibold">bagsTack</span>
+                <span className="text-xl logo-font">bagsTack</span>
               </div>
               <p className="text-muted-foreground text-lg leading-relaxed max-w-4xl mx-auto text-center">
                 Профессиональная команда разработчиков, создающая современные цифровые решения для вашего бизнеса.

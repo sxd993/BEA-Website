@@ -73,9 +73,10 @@ export const ProjectPage = () => {
                         </p>
                     </div>
 
-                    {/* Изображение проекта */}
-                    <div className="mb-12">
-                        <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-2xl">
+                    {/* Блок с фото + деталями справа */}
+                    <div className="grid md:grid-cols-2 gap-12 mb-12 items-start">
+                        {/* Изображение проекта */}
+                        <div className="rounded-2xl overflow-hidden shadow-xl border border-border group transition-transform duration-300 hover:scale-[1.02]">
                             {project.image ? (
                                 <img
                                     src={project.image}
@@ -83,59 +84,15 @@ export const ProjectPage = () => {
                                     className="w-full h-full object-cover"
                                 />
                             ) : (
-                                <div className="w-full h-full bg-gradient-to-br from-[#b76ec7] to-[#b76ec7]/70 flex items-center justify-center">
+                                <div className="w-full h-64 bg-gradient-to-br from-[#b76ec7] to-[#b76ec7]/70 flex items-center justify-center">
                                     <div className="text-white text-6xl font-bold">
                                         {project.name.charAt(0)}
                                     </div>
                                 </div>
                             )}
                         </div>
-                    </div>
 
-                    <div className="grid md:grid-cols-3 gap-12">
-                        {/* Основная информация */}
-                        <div className="md:col-span-2">
-                            {/* Описание */}
-                            <div className="bg-card p-8 rounded-xl border border-border shadow-lg mb-8">
-                                <h2 className="text-2xl font-bold text-foreground mb-6">
-                                    О проекте
-                                </h2>
-                                <p className="text-muted-foreground leading-relaxed text-lg">
-                                    {project.details}
-                                </p>
-                            </div>
-
-                            {/* Функционал */}
-                            {project.features && project.features.length > 0 && (
-                                <div className="bg-card p-8 rounded-xl border border-border shadow-lg mb-8">
-                                    <h2 className="text-2xl font-bold text-foreground mb-6">
-                                        Ключевые возможности
-                                    </h2>
-                                    <div className="grid md:grid-cols-2 gap-4">
-                                        {project.features.map((feature, index) => (
-                                            <div key={index} className="flex items-start gap-3">
-                                                <CheckCircle className="w-5 h-5 text-[#b76ec7] mt-1 flex-shrink-0" />
-                                                <span className="text-muted-foreground">{feature}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Вызовы и решения */}
-                            {project.challenges && (
-                                <div className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                                    <h2 className="text-2xl font-bold text-foreground mb-6">
-                                        Технические вызовы
-                                    </h2>
-                                    <p className="text-muted-foreground leading-relaxed">
-                                        {project.challenges}
-                                    </p>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Боковая панель */}
+                        {/* Детали проекта справа */}
                         <div className="space-y-8">
                             {/* Информация о проекте */}
                             <div className="bg-card p-6 rounded-xl border border-border shadow-lg">
@@ -209,8 +166,54 @@ export const ProjectPage = () => {
                                     )}
                                 </div>
                             </div>
+                        </div>
+                    </div>
 
-                            {/* CTA */}
+                    {/* Основной контент после фото/деталей */}
+                    <div className="grid md:grid-cols-3 gap-12">
+                        <div className="md:col-span-2">
+                            {/* Описание */}
+                            <div className="bg-card p-8 rounded-xl border border-border shadow-lg mb-8">
+                                <h2 className="text-2xl font-bold text-foreground mb-6">
+                                    О проекте
+                                </h2>
+                                <p className="text-muted-foreground leading-relaxed text-lg">
+                                    {project.details}
+                                </p>
+                            </div>
+
+                            {/* Функционал */}
+                            {project.features && project.features.length > 0 && (
+                                <div className="bg-card p-8 rounded-xl border border-border shadow-lg mb-8">
+                                    <h2 className="text-2xl font-bold text-foreground mb-6">
+                                        Ключевые возможности
+                                    </h2>
+                                    <div className="grid md:grid-cols-2 gap-4">
+                                        {project.features.map((feature, index) => (
+                                            <div key={index} className="flex items-start gap-3">
+                                                <CheckCircle className="w-5 h-5 text-[#b76ec7] mt-1 flex-shrink-0" />
+                                                <span className="text-muted-foreground">{feature}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Вызовы */}
+                            {project.challenges && (
+                                <div className="bg-card p-8 rounded-xl border border-border shadow-lg">
+                                    <h2 className="text-2xl font-bold text-foreground mb-6">
+                                        Технические вызовы
+                                    </h2>
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        {project.challenges}
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* CTA справа */}
+                        <div>
                             <div className="bg-gradient-to-r from-[#b76ec7]/10 to-[#b76ec7]/5 p-6 rounded-xl border border-[#b76ec7]/20">
                                 <h3 className="text-lg font-semibold text-foreground mb-3">
                                     Понравился проект?
@@ -222,7 +225,7 @@ export const ProjectPage = () => {
                                     href="https://t.me/sxdddddddddd"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-full bg-[#b76ec7] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#b76ec7]/80 transition-colors duration-200"
+                                    className="w-full bg-[#b76ec7] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#b76ec7]/80 transition-colors duration-200 block text-center"
                                 >
                                     Обсудить проект
                                 </a>

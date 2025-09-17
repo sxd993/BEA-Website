@@ -25,13 +25,10 @@ export const ProjectsList = () => {
         <section className="min-h-screen py-10 bg-background">
             <div className="container mx-auto px-4">
                 {/* Заголовок */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-5">
                     <h1 className="text-3xl md:text-5xl font-bold mb-4">
                         Наши проекты
                     </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        Портфолио наших лучших работ в области веб-разработки и цифровых решений
-                    </p>
                 </div>
 
                 <div className="max-w-6xl mx-auto">
@@ -107,37 +104,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return (
         <div className="bg-card rounded-xl border border-border shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
             {/* Изображение проекта */}
-            <div className="relative h-48 overflow-hidden">
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
                 {project.image ? (
                     <img
-                        src={project.image}
-                        alt={project.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-full object-contain bg-neutral-100 p-2"
                     />
                 ) : (
                     <div className="w-full h-full bg-gradient-to-br from-[#b76ec7] to-[#b76ec7]/70 flex items-center justify-center">
-                        <div className="text-white text-4xl font-bold">
-                            {project.name.charAt(0)}
-                        </div>
+                    <div className="text-white text-4xl font-bold">
+                        {project.name.charAt(0)}
+                    </div>
                     </div>
                 )}
-
-                {/* Метка "Рекомендуемый" */}
-                {project.featured && (
-                    <div className="absolute top-4 left-4">
-                        <span className="bg-[#b76ec7] text-white text-xs font-medium px-3 py-1 rounded-full">
-                            Рекомендуемый
-                        </span>
-                    </div>
-                )}
-
-                {/* Категория */}
-                <div className="absolute top-4 right-4">
-                    <span className="bg-card/90 backdrop-blur-sm text-foreground text-xs font-medium px-3 py-1 rounded-full border border-border/50">
-                        {project.category}
-                    </span>
                 </div>
-            </div>
 
             {/* Контент карточки */}
             <div className="p-6">

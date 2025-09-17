@@ -62,15 +62,15 @@ export const Team = () => {
       {/* Информация о участнике */}
       <div className="text-center space-y-3">
         <div>
-          <h3 className="text-lg font-semibold text-foreground">
+          <h3 className="text-base md:text-lg font-semibold text-foreground">
             {member.name}
           </h3>
-          <p className="text-primary text-sm font-medium">
+          <p className="text-xs md:text-sm text-primary font-medium">
             {member.role}
           </p>
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed">
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
           {member.description}
         </p>
 
@@ -111,30 +111,22 @@ export const Team = () => {
   );
 
   return (
-    <section className="py-10 bg-background border-b border-gray-200">
+    <section className="py-12 bg-white border-b border-gray-200">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl text-5xl font-bold mb-4">
-            Наша команда
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Профессионалы с многолетним опытом, готовые воплотить любую вашу идею в жизнь
-          </p>
-        </div>
-        <div className="max-w-6xl mx-auto">
-          {/* Первые 3 участника */}
-          <div className="grid grid-cols-1 md:grid-cols-2 md:grid-cols-3 gap-8 px-4 md:px-8 mb-8">
-            {teamMembers.slice(0, 3).map((member, index) => renderMember(member, index))}
+        <div className="max-w-6xl mx-auto bg-white border border-gray-200 rounded-xl shadow-lg p-6 md:p-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              Наша команда
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+              Профессионалы с многолетним опытом, готовые воплотить любую вашу идею в жизнь
+            </p>
           </div>
-
-          {/* Четвертый участник (центрирован) */}
-          {teamMembers.length > 3 && (
-            <div className="flex justify-center px-4 md:px-8">
-              <div className="w-full max-w-4xl">
-                {teamMembers.slice(3).map((member, index) => renderMember(member, index + 3))}
-              </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 lg:px-8">
+              {teamMembers.map((member, index) => renderMember(member, index))}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>

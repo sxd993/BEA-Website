@@ -1,9 +1,7 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Shield, Mail, FileText, Users } from 'lucide-react';
+import { Shield, Mail, FileText, Users } from 'lucide-react';
 
 export const PrivacyPolicy = () => {
-    const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -12,15 +10,6 @@ export const PrivacyPolicy = () => {
     return (
         <div className="min-h-screen py-10 bg-background">
             <div className="container mx-auto px-4">
-                {/* Кнопка назад */}
-                <button
-                    onClick={() => navigate('/')}
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200 mb-8 group"
-                >
-                    <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" />
-                    На главную
-                </button>
-
                 <div className="max-w-4xl mx-auto">
                     {/* Заголовок */}
                     <div className="text-center mb-12">

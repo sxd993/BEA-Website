@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const AccordionSection = ({ title, children }: { title: string, children: React.ReactNode }) => {
+export const AccordionSection = ({ title, children, titleClassName = "" }: { title: string, children: React.ReactNode, titleClassName?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -9,7 +9,7 @@ export const AccordionSection = ({ title, children }: { title: string, children:
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center px-4 py-3 bg-gray-100 hover:bg-gray-200 transition-colors font-medium"
       >
-        <span>{title}</span>
+        <span className={titleClassName}>{title}</span>
         <svg
           className={`w-5 h-5 transition-transform ${isOpen ? "rotate-180" : ""}`}
           fill="none"
