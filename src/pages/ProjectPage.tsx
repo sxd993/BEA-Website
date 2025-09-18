@@ -55,15 +55,10 @@ export const ProjectPage = () => {
                             <h1 className="text-3xl md:text-5xl font-bold text-foreground">
                                 {project.name}
                             </h1>
-                            {project.featured && (
-                                <span className="bg-[#b76ec7] text-white text-sm font-medium px-3 py-1 rounded-full">
-                                    Рекомендуемый
-                                </span>
-                            )}
                         </div>
 
                         {project.organization && (
-                            <p className="text-xl text-[#b76ec7] font-semibold mb-4">
+                            <p className="text-xl text-center text-[#b76ec7] font-semibold mb-4">
                                 {project.organization}
                             </p>
                         )}
@@ -73,8 +68,8 @@ export const ProjectPage = () => {
                         </p>
                     </div>
 
-                    {/* Блок с фото + деталями справа */}
-                    <div className="grid md:grid-cols-2 gap-12 mb-12 items-start">
+                    {/* Блок с фото + деталями снизу */}
+                    <div className="flex flex-col gap-12 mb-12 items-start">
                         {/* Изображение проекта */}
                         <div className="rounded-2xl overflow-hidden shadow-xl border border-border group transition-transform duration-300 hover:scale-[1.02]">
                             {project.image ? (
@@ -92,8 +87,8 @@ export const ProjectPage = () => {
                             )}
                         </div>
 
-                        {/* Детали проекта справа */}
-                        <div className="space-y-8">
+                        {/* Детали проекта cнизу */}
+                        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
                             {/* Информация о проекте */}
                             <div className="bg-card p-6 rounded-xl border border-border shadow-lg">
                                 <h3 className="text-lg font-semibold text-foreground mb-6">
@@ -128,14 +123,14 @@ export const ProjectPage = () => {
                                 <h3 className="text-lg font-semibold text-foreground mb-4">
                                     Технологии
                                 </h3>
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap list-none gap-2">
                                     {project.tech.map((tech, index) => (
-                                        <span
+                                        <li
                                             key={index}
                                             className="bg-muted text-foreground text-sm font-medium px-3 py-2 rounded-lg"
                                         >
                                             {tech}
-                                        </span>
+                                        </li>
                                     ))}
                                 </div>
                             </div>

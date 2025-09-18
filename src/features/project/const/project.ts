@@ -7,7 +7,7 @@ import visagistIMG from '../../../assets/projects/визажист.png'
 export const PROJECTS: Project[] = [
     {
         id: 1,
-        name: 'Сайт для эвакуатора',
+        name: 'Сайт-визитка для вызова услуг эвакуатора',
         organization: 'Коммерческий проект',
         tech: ['React 19 + Vite', 'TypeScript', 'Tailwind CSS', 'Telegram Bot API'],
         github: 'https://github.com/6ubble/evacuatorts',
@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
         image: evacuatorIMG,
         category: 'Одностраничный сайт',
         featured: true,
-        description: 'Простой одностраничный сайт, использующийся для продвижения услуг и записи на сеанс.',
+        description: 'Простой одностраничный сайт, использующийся для продвижения услуг и заказа услуг.',
         details: 'SPA-приложение для продвижения личного бренда и собирания клиентской базы посредством CPA-формы со встроенной интеграцией с личным Telegram-ботом',
         status: 'Завершен и активно используется',
     },
@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
         organization: 'Коммерческий проект',
         tech: ['React 19 + Vite', 'TypeScript', 'Tailwind CSS', 'Telegram Bot API'],
         github: 'https://github.com/6ubble/visagiste',
-        demo: '',
+        demo: 'https://beauty-lab-rostov.ru/',
         image: visagistIMG,
         category: 'Одностраничный сайт',
         featured: true,
