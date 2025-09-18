@@ -1,6 +1,10 @@
-const WaveText = ({ text }) => (
+interface WaveTextProps {
+  text: string;
+}
+
+const WaveText = ({ text }: WaveTextProps) => (
   <>
-    {text.split("").map((char, i) => (
+    {text.split("").map((char: string, i: number) => (
       <span
         key={i}
         className="inline-block wave-letter"

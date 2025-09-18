@@ -1,7 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import './SectionTitle.css';
 
-const SectionTitle = ({ children, className = '' }) => {
+interface SectionTitleProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const SectionTitle = ({ children, className = '' }: SectionTitleProps) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 

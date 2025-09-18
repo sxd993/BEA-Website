@@ -1,7 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 import './reveal-on-scroll.css';
 
-const RevealOnScroll = ({ children, className = '' }) => {
+interface RevealOnScrollProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const RevealOnScroll = ({ children, className = '' }: RevealOnScrollProps) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 

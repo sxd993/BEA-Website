@@ -39,7 +39,7 @@ export const Header = () => {
 
       return () => clearTimeout(timer);
     }
-  }, [location.state]);
+  }, [location.state, scrollToSection]);
 
   // Закрытие мобильного меню при изменении размера экрана
   useEffect(() => {
