@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Shield, Mail, FileText, Users } from 'lucide-react';
+import { Shield, Mail } from 'lucide-react';
 
 export const PrivacyPolicy = () => {
 
@@ -31,7 +31,7 @@ export const PrivacyPolicy = () => {
                         {/* 1. Общие положения */}
                         <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
                             <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                                <FileText className="w-6 h-6 text-[#b76ec7]" />
+
                                 1. Общие положения
                             </h2>
                             <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -47,7 +47,6 @@ export const PrivacyPolicy = () => {
                         {/* 2. Какие данные мы собираем */}
                         <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
                             <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                                <Users className="w-6 h-6 text-[#b76ec7]" />
                                 2. Какие данные мы собираем
                             </h2>
                             <div className="space-y-6">
@@ -58,7 +57,7 @@ export const PrivacyPolicy = () => {
                                     <ul className="space-y-2 text-muted-foreground">
                                         <li className="flex items-start gap-2">
                                             <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
-                                            Имя и контактная информация (email, Telegram) при обращении через формы связи
+                                            Имя и контактная информация (Email, Telegram) при обращении через формы связи
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
@@ -229,16 +228,15 @@ export const PrivacyPolicy = () => {
                         </section>
 
                         {/* 8. Контактная информация */}
-                        <section className="bg-gradient-to-r from-[#b76ec7]/10 to-[#b76ec7]/5 p-8 rounded-xl border border-[#b76ec7]/20">
+                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
                             <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-                                <Mail className="w-6 h-6 text-[#b76ec7]" />
                                 8. Контактная информация
                             </h2>
                             <div className="space-y-4 text-muted-foreground leading-relaxed">
                                 <p>
                                     По вопросам, связанным с обработкой персональных данных, вы можете обратиться к нам:
                                 </p>
-                                <div className="bg-card p-6 rounded-lg border border-border">
+                                <div className="bg-card p-6 rounded-lg">
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
                                             <Mail className="w-5 h-5 text-[#b76ec7]" />

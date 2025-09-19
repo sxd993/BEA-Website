@@ -14,7 +14,7 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     name: "Владимир Гурбанович",
-    role: "Lead Fullstack Developer",
+    role: "Fullstack Developer",
     description:
       "Разрабатываю масштабируемые веб-приложения от интерфейса до серверной логики. Использую React, TypeScript, Next.js, Node.js и Python. Более 3 лет создаю решения, которые стабильны, быстры и удобны в поддержке.",
     skills: ["React", "TypeScript", "Next.js", "Node.js", "Python"],
@@ -28,8 +28,8 @@ export const teamMembers: TeamMember[] = [
     name: "Евгений Бухмиллер",
     role: "Frontend Developer",
     description:
-      "Специализируюсь на создании удобных и отзывчивых интерфейсов. В работе опираюсь на React, TypeScript и Next.js. Более 3 лет опыта в разработке UI, где красота сочетается с высокой скоростью работы.",
-    skills: ["React", "TypeScript", "Next.js"],
+      "Специализируюсь на создании удобных и отзывчивых интерфейсов. В работе опираюсь на React, TypeScript и Next.js. Более года в разработке UI, где красота сочетается с высокой скоростью работы.",
+    skills: ["React", "TypeScript", "Tailwind CSS"],
     social: {
       github: "https://github.com/shibapc",
       email: "evgbukhmiller@gmail.com",

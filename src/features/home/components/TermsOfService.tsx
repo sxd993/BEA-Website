@@ -366,7 +366,7 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 9. Заключительные положения */}
-                        <section className="bg-gradient-to-r from-[#b76ec7]/10 to-[#b76ec7]/5 p-8 rounded-xl border border-[#b76ec7]/20">
+                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
                             <h2 className="text-2xl font-bold text-foreground mb-6">
                                 9. Заключительные положения
                             </h2>
