@@ -1,8 +1,3 @@
-import Vova1 from "../../../assets/Vladimir.jpg";
-import Jeka from "../../../assets/Evgeniy.jpg";
-import Artem from "../../../assets/Artem.jpg";
-import Artur from "../../../assets/Artur.jpg";
-
 export interface TeamMember {
   name: string;
   role: string;
@@ -27,7 +22,7 @@ export const teamMembers: TeamMember[] = [
       github: "https://github.com/sxd993",
       email: "gurbanovich2014@yandex.ru",
     },
-    photo: Vova1,
+    photo: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Team/1758258064-Vladimir.avif',
   },
   {
     name: "Евгений Бухмиллер",
@@ -39,7 +34,7 @@ export const teamMembers: TeamMember[] = [
       github: "https://github.com/shibapc",
       email: "evgbukhmiller@gmail.com",
     },
-    photo: Jeka,
+    photo: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Team/1758258065-Evgeniy.avif',
   },
   {
     name: "Артем Сафонов",
@@ -51,7 +46,7 @@ export const teamMembers: TeamMember[] = [
       github: "https://github.com/6ubble",
       email: "bestartiom@yandex.ru",
     },
-    photo: Artem,
+    photo: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Team/1758258064-Artem.avif',
   },
   {
     name: "Артур Алеев",
@@ -63,6 +58,6 @@ export const teamMembers: TeamMember[] = [
       github: "https://github.com/artur-aleev",
       email: "arturdudarev60@gmail.com",
     },
-    photo: Artur,
+    photo: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Team/1758258064-Artur.avif',
   },
 ];

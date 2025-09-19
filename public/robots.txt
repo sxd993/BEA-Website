@@ -1,0 +1,43 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://bagstack.ru/sitemap.xml
+
+# Запрещаем индексацию технических страниц
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: *.json$
+Disallow: /vite.config.*
+Disallow: /package*.json
+
+# Разрешаем основные страницы
+Allow: /
+Allow: /projects
+Allow: /projects/*
+Allow: /privacy-policy
+Allow: /terms-of-service
+
+# Оптимизация для российских поисковиков
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Yandex
+Crawl-delay: 1
+Host: bagstack.ru
+
+User-agent: Bingbot  
+Crawl-delay: 2
+
+User-agent: Mail.RU_Bot
+Crawl-delay: 2
+
+# Заблокируем плохих ботов
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

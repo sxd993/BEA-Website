@@ -1,8 +1,4 @@
 import type { Project } from "../../../shared/types";
-import evacuatorIMG from '../../../assets/projects/эвакуатор.png'
-import nnvIMG from '../../../assets/projects/айфоны.png'
-import bipIMG from '../../../assets/projects/бип.png'
-import visagistIMG from '../../../assets/projects/визажист.png'
 
 export const PROJECTS: Project[] = [
     {
@@ -12,7 +8,7 @@ export const PROJECTS: Project[] = [
         tech: ['React 19 + Vite', 'TypeScript', 'Tailwind CSS', 'Telegram Bot API'],
         github: 'https://github.com/6ubble/evacuatorts',
         demo: 'https://tyagach-hohotach.ru/',
-        image: evacuatorIMG,
+        image: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Projects/evacuator.avif',
         category: 'Одностраничный сайт',
         featured: true,
         description: 'Простой одностраничный сайт, использующийся для продвижения услуг и заказа услуг.',
@@ -25,7 +21,7 @@ export const PROJECTS: Project[] = [
         organization: 'Коммерческий проект',
         tech: ['React 19 + Vite', 'TypeScript', 'Tailwind CSS', 'MySQL', 'TanStack Query', 'Zustand', 'Node.js + Express.js'],
         github: 'https://github.com/sxd993/Store-Frontend',
-        image: nnvIMG,
+        image: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Projects/nnv.avif',
         category: 'E-commerce магазин',
         featured: false,
         description: 'Современный e-commerce магазин для продажи электроники с минималистичным дизайном.',
@@ -50,7 +46,7 @@ export const PROJECTS: Project[] = [
         tech: ['React 19 + Vite', 'Next.js', 'MySQL', 'Tailwind CSS', 'TanStack Query'],
         github: 'https://github.com/sxd993/bip_frontend',
         demo: '',
-        image: bipIMG,
+        image: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Projects/bip.avif',
         category: 'Многофункциональный сайт',
         featured: true,
         description: 'Многофункциональный сайт для юридической компании, имеет сложную логику, связь с Битрикс24.',
@@ -73,7 +69,7 @@ export const PROJECTS: Project[] = [
         tech: ['React 19 + Vite', 'TypeScript', 'Tailwind CSS', 'Telegram Bot API'],
         github: 'https://github.com/6ubble/visagiste',
         demo: 'https://beauty-lab-rostov.ru/',
-        image: visagistIMG,
+        image: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Projects/visagiste.avif',
         category: 'Одностраничный сайт',
         featured: true,
         description: 'Простой одностраничный сайт, использующийся для продвижения услуг и записи на сеанс.',
