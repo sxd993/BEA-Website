@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
         name: 'Сайт-визитка для вызова услуг эвакуатора',
         organization: 'Коммерческий проект',
         tech: ['React 19 + Vite', 'TypeScript', 'Tailwind CSS', 'Telegram Bot API'],
-        github: 'https://github.com/6ubble/evacuatorts',
+        github: 'https://github.com/6ubble/evacuators',
         demo: 'https://tyagach-hohotach.ru/',
         image: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Projects/evacuator.avif',
         category: 'Одностраничный сайт',
