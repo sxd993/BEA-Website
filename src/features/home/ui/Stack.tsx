@@ -20,12 +20,12 @@ const techCategories = [
 
 export const Stack = () => {
   return (
-    <section className="py-12 bg-white border-b border-gray-200">
+    <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 border-b border-gray-200/50">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto bg-white border border-gray-200 rounded-xl shadow-lg p-6 md:p-10">
+        <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl shadow-2xl shadow-gray-200/20 p-8 md:p-12 hover:shadow-3xl hover:shadow-gray-300/30 transition-all duration-500">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">Наш технологический стек</h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">Наш технологический стек</h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Используем проверенные и современные технологии для создания надежных решений
             </p>
           </div>
@@ -34,24 +34,39 @@ export const Stack = () => {
             {techCategories.map((category, index) => (
               <div
                 key={index}
-                className="flex flex-col bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300"
+                className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-300/30 hover:bg-gradient-to-br hover:from-[#b76ec7]/5 hover:to-white transition-all duration-500 group hover:-translate-y-2 hover:border-[#b76ec7]/30"
               >
-                {/* Иконка и заголовок */}
-                <div className="flex items-center gap-3 mb-4">
-                  <category.icon className="w-6 h-6 text-purple-500" />
-                  <span className="font-semibold text-gray-800 text-base md:text-lg">{category.title}</span>
+                {/* Иконка категории */}
+                <div className="relative mb-6">
+                  <div className="w-15 h-15 mx-auto bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-500 shadow-lg group-hover:shadow-xl">
+                    <category.icon className="w-6 h-6 text-white" />
+                  </div>
                 </div>
 
-                {/* Технологии */}
-                <div className="flex flex-wrap gap-2">
-                  {category.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1.5 md:py-2 bg-gray-100 text-gray-800 text-xs md:text-sm rounded-full hover:bg-purple-100 hover:text-purple-600 transition-colors duration-200 cursor-default"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                {/* Заголовок */}
+                <div className="text-center space-y-3">
+                  <div>
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900 group-hover:text-[#8e24aa] transition-colors duration-300">
+                      {category.title}
+                    </h3>
+                  </div>
+
+                  {/* Технологии */}
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {category.technologies.slice(0, 6).map((tech, techIndex) => (
+                      <span
+                        key={`${tech}-${techIndex}`}
+                        className="px-3 py-1.5 bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 text-[#b76ec7] text-xs rounded-full border border-[#b76ec7]/20 shadow-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {category.technologies.length > 6 && (
+                      <span className="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-600 text-xs rounded-full border border-gray-300/50 shadow-sm">
+                        +{category.technologies.length - 6}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

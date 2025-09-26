@@ -17,7 +17,7 @@ export const teamMembers: TeamMember[] = [
     role: "Fullstack Developer",
     description:
       "Разрабатываю масштабируемые веб-приложения от интерфейса до серверной логики. Использую React, TypeScript, Next.js, Node.js и Python. Более 3 лет создаю решения, которые стабильны, быстры и удобны в поддержке.",
-    skills: ["React", "TypeScript", "Next.js", "Node.js", "Python"],
+    skills: ["React", "TypeScript", "Node.js"],
     social: {
       github: "https://github.com/sxd993",
       email: "gurbanovich2014@yandex.ru",

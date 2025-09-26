@@ -30,11 +30,11 @@ export const Team = () => {
   const renderMember = (member: TeamMember, index: number) => (
     <div
       key={`${member.name}-${index}`}
-      className="bg-card p-6 rounded-xl border border-border hover:shadow-lg transition-all duration-300 group"
+      className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-300/30 hover:bg-gradient-to-br hover:from-[#b76ec7]/5 hover:to-white transition-all duration-500 group hover:-translate-y-2 hover:border-[#b76ec7]/30"
     >
       {/* Фото участника */}
       <div className="relative mb-6">
-        <div className="w-24 h-24 mx-auto bg-muted rounded-full flex items-center justify-center overflow-hidden group-hover:scale-105 transition-transform duration-300">
+        <div className="w-24 h-24 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-500 shadow-lg group-hover:shadow-xl">
           {member.photo ? (
             <img
               src={member.photo}
@@ -62,43 +62,43 @@ export const Team = () => {
       {/* Информация о участнике */}
       <div className="text-center space-y-3">
         <div>
-          <h3 className="text-base md:text-lg font-semibold text-foreground">
+          <h3 className="text-base md:text-lg font-semibold text-gray-900 group-hover:text-[#8e24aa] transition-colors duration-300">
             {member.name}
           </h3>
-          <p className="text-xs md:text-sm text-primary font-medium">
+          <p className="text-xs md:text-sm text-[#b76ec7] font-medium">
             {member.role}
           </p>
         </div>
 
-        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+        <p className="text-sm md:text-base text-gray-600 leading-relaxed">
           {member.description}
         </p>
 
         {/* Навыки */}
-        <div className="flex flex-wrap gap-1 justify-center text-[#b76ec7]">
+        <div className="flex flex-wrap gap-2 justify-center">
           {member.skills.slice(0, 3).map((skill, skillIndex) => (
             <span
               key={`${skill}-${skillIndex}`}
-              className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+              className="px-3 py-1.5 bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 text-[#b76ec7] text-xs rounded-full border border-[#b76ec7]/20 shadow-sm"
             >
               {skill}
             </span>
           ))}
           {member.skills.length > 3 && (
-            <span className="px-2 py-1 bg-muted text-muted-foreground text-xs rounded-full">
+            <span className="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-600 text-xs rounded-full border border-gray-300/50 shadow-sm">
               +{member.skills.length - 3}
             </span>
           )}
         </div>
 
         {/* Социальные сети */}
-        <div className="flex justify-center space-x-3 pt-2">
+        <div className="flex justify-center space-x-3 pt-3">
           {Object.entries(member.social).map(([platform, url]) => (
             url && (
               <button
                 key={platform}
                 onClick={() => handleSocialClick(platform as keyof TeamMember['social'], url)}
-                className="p-2 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground text-muted-foreground transition-all duration-200 hover:scale-110"
+                className="p-2.5 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 hover:from-[#b76ec7] hover:to-[#8e24aa] hover:text-white text-gray-600 transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg"
                 title={`Связаться через ${platform}`}
               >
                 {getSocialIcon(platform)}
@@ -111,14 +111,14 @@ export const Team = () => {
   );
 
   return (
-    <section className="py-12 bg-white border-b border-gray-200">
+    <section className="py-16 bg-gradient-to-br from-white via-gray-50 to-white border-b border-gray-200/50">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto bg-white border border-gray-200 rounded-xl shadow-lg p-6 md:p-10">
+        <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl shadow-2xl shadow-gray-200/20 p-8 md:p-12 hover:shadow-3xl hover:shadow-gray-300/30 transition-all duration-500">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">
               Наша команда
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Профессионалы с многолетним опытом, готовые воплотить любую вашу идею в жизнь
             </p>
           </div>

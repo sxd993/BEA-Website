@@ -7,21 +7,21 @@ export const Calculator = () => {
   const [timeline, setTimeline] = useState("standard");
 
   const projectTypes = {
-    landing: { name: "Лендинг", price: 50000 },
-    corporate: { name: "Корпоративный сайт", price: 150000 },
-    ecommerce: { name: "Интернет-магазин", price: 300000 },
-    webapp: { name: "Веб-приложение", price: 500000 },
-    mobile: { name: "Мобильное приложение", price: 600000 },
-    system: { name: "Комплексная система", price: 1000000 },
+    landing: { name: "Лендинг", price: 25000 },
+    corporate: { name: "Корпоративный сайт", price: 60000 },
+    ecommerce: { name: "Интернет-магазин", price: 120000 },
+    webapp: { name: "Веб-приложение", price: 180000 },
+    mobile: { name: "Мобильное приложение", price: 250000 },
+    system: { name: "Комплексная система", price: 400000 },
   };
 
   const additionalFeatures = {
-    admin: { name: "Панель администратора", price: 100000 },
-    payment: { name: "Система платежей", price: 150000 },
-    analytics: { name: "Аналитика и отчеты", price: 80000 },
-    integration: { name: "Интеграции с API", price: 120000 },
-    chat: { name: "Чат поддержка", price: 60000 },
-    mobile_app: { name: "Мобильная версия", price: 200000 },
+    admin: { name: "Панель администратора", price: 40000 },
+    payment: { name: "Система платежей", price: 60000 },
+    analytics: { name: "Аналитика и отчеты", price: 30000 },
+    integration: { name: "Интеграции с API", price: 50000 },
+    chat: { name: "Чат поддержка", price: 20000 },
+    mobile_app: { name: "Мобильная версия", price: 80000 },
   };
 
   const timelineMultipliers = {
@@ -57,20 +57,20 @@ export const Calculator = () => {
   };
 
   return (
-    <section className="py-12 bg-background border-b border-gray-200">
+    <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 border-b border-gray-200/50">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto bg-white border border-gray-200 rounded-xl shadow-lg p-6 md:p-10">
+        <div className="max-w-5xl mx-auto bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl shadow-2xl shadow-gray-200/20 p-6 md:p-8 hover:shadow-3xl hover:shadow-gray-300/30 transition-all duration-500">
           <div className="text-center">
-            <h2 className="text-2xl md:text-5xl font-bold mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">
               Калькулятор стоимости
             </h2>
-            <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4 leading-relaxed">
               Рассчитайте предварительную стоимость вашего проекта за пару минут
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white rounded-xl p-4 md:p-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-gray-200/50 shadow-lg">
 
               {/* Тип проекта */}
               <AccordionSection title="Тип проекта" titleClassName="text-sm md:text-base">
@@ -78,10 +78,10 @@ export const Calculator = () => {
                   {Object.entries(projectTypes).map(([key, type]) => (
                     <label key={key} className="cursor-pointer">
                       <div
-                        className={`p-4 md:p-6 border rounded-lg transition-all duration-200 hover:bg-gray-50 ${
+                        className={`p-3 md:p-4 border rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 hover:shadow-md hover:-translate-y-1 ${
                           projectType === key
-                            ? "border-[#b76ec7] bg-[#b76ec7]/5"
-                            : "border-gray-200"
+                            ? "border-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 shadow-md shadow-[#b76ec7]/20"
+                            : "border-gray-200/50 hover:border-[#b76ec7]/50"
                         }`}
                       >
                         <div className="flex items-center gap-3">
@@ -97,7 +97,7 @@ export const Calculator = () => {
                             <span className="font-medium text-sm md:text-base break-words">
                               {type.name}
                             </span>
-                            <span className="px-2 md:px-3 py-1 text-xs md:text-sm font-semibold text-[#b76ec7] bg-[#b76ec7]/10 rounded-full whitespace-nowrap shadow-sm self-start md:self-auto">
+                            <span className="px-3 md:px-4 py-1.5 text-xs md:text-sm font-semibold text-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 rounded-full whitespace-nowrap shadow-md self-start md:self-auto border border-[#b76ec7]/20">
                               {type.price.toLocaleString()} ₽
                             </span>
                           </div>
@@ -114,10 +114,10 @@ export const Calculator = () => {
                   {Object.entries(additionalFeatures).map(([key, feature]) => (
                     <label key={key} className="cursor-pointer">
                       <div
-                        className={`p-4 border rounded-lg transition-all duration-200 hover:bg-gray-50 ${
+                        className={`p-3 border rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 hover:shadow-md hover:-translate-y-1 ${
                           features.includes(key)
-                            ? "border-[#b76ec7] bg-[#b76ec7]/5"
-                            : "border-gray-200"
+                            ? "border-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 shadow-md shadow-[#b76ec7]/20"
+                            : "border-gray-200/50 hover:border-[#b76ec7]/50"
                         }`}
                       >
                         <div className="flex items-center gap-3">
@@ -131,7 +131,7 @@ export const Calculator = () => {
                             <span className="font-medium text-sm md:text-base break-words">
                               {feature.name}
                             </span>
-                            <span className="text-xs md:text-sm bg-gray-100 px-2 py-1 rounded whitespace-nowrap self-start md:self-auto">
+                            <span className="text-xs md:text-sm bg-gradient-to-r from-gray-100 to-gray-200 px-3 py-1.5 rounded-full whitespace-nowrap self-start md:self-auto border border-gray-300/50 shadow-sm">
                               +{feature.price.toLocaleString()} ₽
                             </span>
                           </div>
@@ -148,10 +148,10 @@ export const Calculator = () => {
                   {Object.entries(timelineMultipliers).map(([key, option]) => (
                     <label key={key} className="cursor-pointer">
                       <div
-                        className={`p-4 border rounded-lg transition-all duration-200 hover:bg-gray-50 ${
+                        className={`p-3 border rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 hover:shadow-md hover:-translate-y-1 ${
                           timeline === key
-                            ? "border-[#b76ec7] bg-[#b76ec7]/5"
-                            : "border-gray-200"
+                            ? "border-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 shadow-md shadow-[#b76ec7]/20"
+                            : "border-gray-200/50 hover:border-[#b76ec7]/50"
                         }`}
                       >
                         <div className="flex items-center gap-3">
@@ -195,19 +195,19 @@ export const Calculator = () => {
               </AccordionSection>
 
               {/* Результат */}
-              <div className="bg-gradient-to-r from-[#b76ec7]/10 to-[#b76ec7]/5 rounded-lg p-4 md:p-6 border border-[#b76ec7]/20">
+              <div className="bg-gradient-to-r from-[#b76ec7]/15 to-[#8e24aa]/15 rounded-xl p-4 md:p-6 border border-[#b76ec7]/30 shadow-lg shadow-[#b76ec7]/10">
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="w-full">
-                    <h3 className="text-lg md:text-2xl font-bold mb-2">
+                    <h3 className="text-lg md:text-xl font-bold mb-2 bg-gradient-to-r from-[#8e24aa] to-[#b76ec7] bg-clip-text text-transparent">
                       Предварительная стоимость
                     </h3>
-                    <p className="text-sm md:text-base text-gray-600 px-2">
+                    <p className="text-sm text-gray-600 px-2 leading-relaxed">
                       Точная цена определяется после анализа требований
                     </p>
                   </div>
                   
                   <div className="w-full space-y-4">
-                    <div className="text-xl md:text-3xl font-bold text-[#b76ec7]">
+                    <div className="text-xl md:text-3xl font-bold bg-gradient-to-r from-[#8e24aa] to-[#b76ec7] bg-clip-text text-transparent drop-shadow-lg">
                       {calculatePrice().toLocaleString()} ₽
                     </div>
                     
@@ -215,7 +215,7 @@ export const Calculator = () => {
                       href="https://t.me/sxdddddddddd"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#b76ec7] text-white px-6 py-3 rounded-lg hover:bg-[#b76ec7]/80 transition-colors font-medium text-sm md:text-base w-full md:w-auto min-w-[200px]"
+                      className="inline-flex items-center justify-center gap-2 h-10 px-6 text-sm bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white rounded-full hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 whitespace-nowrap w-full md:w-auto min-w-[180px] shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25 hover:scale-105 animate-glow"
                     >
                       Обсудить проект
                       <svg
