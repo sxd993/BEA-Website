@@ -8,33 +8,33 @@ export const PrivacyPolicy = () => {
     }, []);
 
     return (
-        <div className="min-h-screen py-10 bg-background">
+        <div className="min-h-screen py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50">
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
                     {/* Заголовок */}
                     <div className="text-center mb-12">
-                        <div className="w-16 h-16 bg-[#b76ec7] rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div className="w-16 h-16 bg-gradient-to-br from-[#b76ec7] to-[#8e24aa] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                             <Shield className="w-8 h-8 text-white" />
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                        <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">
                             Политика конфиденциальности
                         </h1>
-                        <p className="text-xl text-muted-foreground">
+                        <p className="text-xl text-gray-600">
                             Информация о том, как мы собираем, используем и защищаем ваши данные
                         </p>
-                        <p className="text-sm text-muted-foreground mt-4">
+                        <p className="text-sm text-gray-500 mt-4">
                             Последнее обновление: 12 сентября 2025 г.
                         </p>
                     </div>
 
                     <div className="space-y-8">
                         {/* 1. Общие положения */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
 
                                 1. Общие положения
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сайта bagsTack (далее — "Сайт"), принадлежащего команде разработчиков bagsTack (далее — "Мы", "Компания").
                                 </p>
@@ -45,16 +45,16 @@ export const PrivacyPolicy = () => {
                         </section>
 
                         {/* 2. Какие данные мы собираем */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                                 2. Какие данные мы собираем
                             </h2>
                             <div className="space-y-6">
                                 <div>
-                                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
                                         Персональные данные:
                                     </h3>
-                                    <ul className="space-y-2 text-muted-foreground">
+                                    <ul className="space-y-2 text-gray-600">
                                         <li className="flex items-start gap-2">
                                             <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
                                             Имя и контактная информация (Email, Telegram) при обращении через формы связи
@@ -70,10 +70,10 @@ export const PrivacyPolicy = () => {
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-3">
                                         Технические данные:
                                     </h3>
-                                    <ul className="space-y-2 text-muted-foreground">
+                                    <ul className="space-y-2 text-gray-600">
                                         <li className="flex items-start gap-2">
                                             <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
                                             IP-адрес и данные о браузере
@@ -96,12 +96,12 @@ export const PrivacyPolicy = () => {
                         </section>
 
                         {/* 3. Цели обработки данных */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 3. Цели обработки персональных данных
                             </h2>
                             <div className="space-y-4">
-                                <ul className="space-y-3 text-muted-foreground">
+                                <ul className="space-y-3 text-gray-600">
                                     <li className="flex items-start gap-3">
                                         <span className="w-2 h-2 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
                                         <span><strong className="text-foreground">Связь с клиентами:</strong> Ответы на запросы, консультации по проектам, предоставление коммерческих предложений</span>
@@ -123,11 +123,11 @@ export const PrivacyPolicy = () => {
                         </section>
 
                         {/* 4. Cookies */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 4. Использование Cookies
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     Мы используем cookies и аналогичные технологии для улучшения работы сайта:
                                 </p>
@@ -148,11 +148,11 @@ export const PrivacyPolicy = () => {
                         </section>
 
                         {/* 5. Передача данных третьим лицам */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 5. Передача данных третьим лицам
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     Мы не продаем, не обмениваем и не передаем ваши персональные данные третьим лицам без вашего согласия, за исключением следующих случаев:
                                 </p>
@@ -174,11 +174,11 @@ export const PrivacyPolicy = () => {
                         </section>
 
                         {/* 6. Безопасность данных */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 6. Безопасность персональных данных
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     Мы применяем современные технические и организационные меры для защиты ваших данных:
                                 </p>
@@ -200,11 +200,11 @@ export const PrivacyPolicy = () => {
                         </section>
 
                         {/* 7. Ваши права */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 7. Ваши права
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>Вы имеете право:</p>
                                 <ul className="space-y-2 ml-4">
                                     <li className="flex items-start gap-2">
@@ -228,15 +228,15 @@ export const PrivacyPolicy = () => {
                         </section>
 
                         {/* 8. Контактная информация */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                                 8. Контактная информация
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     По вопросам, связанным с обработкой персональных данных, вы можете обратиться к нам:
                                 </p>
-                                <div className="bg-card p-6 rounded-lg">
+                                <div className="bg-white/70 p-6 rounded-xl border border-gray-200">
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
                                             <Mail className="w-5 h-5 text-[#b76ec7]" />
@@ -260,11 +260,11 @@ export const PrivacyPolicy = () => {
                         </section>
 
                         {/* 9. Изменения политики */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 9. Изменения в Политике конфиденциальности
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     Мы оставляем за собой право вносить изменения в настоящую Политику конфиденциальности.
                                     При внесении существенных изменений мы уведомим вас через сайт или по электронной почте.

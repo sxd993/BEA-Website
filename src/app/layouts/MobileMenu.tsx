@@ -1,5 +1,6 @@
 import { Menu, X } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
+import { createPortal } from "react-dom";
 
 type MobileMenuProps = {
   navigationItems: { label: string; sectionId: string }[];
@@ -16,60 +17,81 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   onNavigateProjects,
   onNavigateToSection,
 }) => {
-  return (
-    <div className="fixed inset-0 z-50 bg-white flex flex-col">
-      <div className="flex justify-between items-center px-4 py-4 border-b border-gray-200">
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, []);
+
+  return createPortal(
+    <div className="fixed inset-0 z-[1000] h-screen bg-white/95 backdrop-blur-md flex flex-col overflow-hidden">
+      {/* Top bar */}
+      <div className="relative flex justify-between items-center px-4 py-4 border-b border-gray-200/60 shadow-sm">
+        {/* Subtle gradient accent */}
+        <div className="pointer-events-none absolute -top-16 -left-24 w-56 h-56 bg-gradient-to-br from-[#b76ec7]/15 to-[#8e24aa]/10 rounded-full blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-16 -right-24 w-56 h-56 bg-gradient-to-br from-[#8e24aa]/12 to-[#b76ec7]/8 rounded-full blur-3xl" />
+
         <button
           onClick={onLogoClick}
-          className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+          className="flex items-center space-x-2 hover:scale-[1.02] transition-all duration-300 relative z-10"
         >
-          <span className="text-xl logo-font">bagsTack</span>
+          <span className="text-xl md:text-2xl bg-gradient-to-r from-[#8e24aa] to-[#b76ec7] bg-clip-text text-transparent logo-font">bagsTack</span>
         </button>
         <button
           onClick={onClose}
-          className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          className="p-2 hover:bg-gray-100 rounded-lg transition-colors relative z-10"
           aria-label="Закрыть меню"
         >
           <X className="h-6 w-6" />
         </button>
       </div>
 
-      <nav className="flex-1 flex flex-col justify-center items-center gap-6">
-        {navigationItems.map((item) => (
-          <button
-            key={item.sectionId}
-            onClick={() => {
-              onNavigateToSection(item.sectionId);
-              onClose();
-            }}
-            className="text-xl text-muted-foreground hover:text-foreground transition-colors duration-200"
-          >
-            {item.label}
-          </button>
-        ))}
+      {/* Nav list */}
+      <nav className="relative flex-1 flex flex-col justify-center items-center gap-6 px-6">
+        <div className="w-full max-w-xs space-y-10">
+          {navigationItems.map((item) => (
+            <button
+              key={item.sectionId}
+              onClick={() => {
+                onNavigateToSection(item.sectionId);
+                onClose();
+              }}
+              className="w-full text-base md:text-lg px-4 py-2.5 rounded-full bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 text-[#8e24aa] border border-[#b76ec7]/20 shadow-sm"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
 
-        <div className="mt-8 flex flex-col gap-4 w-2/3">
-          <a
-            href="https://t.me/sxdddddddddd"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full px-4 py-3 text-center text-foreground border border-border rounded-lg hover:bg-[#b76ec7] hover:text-white hover:border-[#b76ec7] transition-all duration-300"
-            onClick={onClose}
-          >
-            Связаться
-          </a>
+        {/* CTAs */}
+        <div className="mt-8 flex flex-col gap-3 w-full max-w-sm">
           <button
             onClick={() => {
               onNavigateProjects();
               onClose();
             }}
-            className="block w-full px-4 py-3 text-center bg-[#b76ec7] text-white rounded-lg hover:bg-[#b76ec7]/80 transition-colors duration-200"
+            className="block w-full h-12 px-4 text-center bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white rounded-full hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25 hover:scale-105"
           >
             Наши проекты
           </button>
+          <a
+            href="https://t.me/sxdddddddddd"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full h-12 px-4 text-center leading-[48px] bg-white text-gray-800 border-2 border-gray-200 rounded-full hover:border-[#b76ec7] hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
+            onClick={onClose}
+          >
+            Связаться
+          </a>
         </div>
+
+        {/* Footer note */}
+        <div className="absolute bottom-4 text-xs text-gray-400">© bagsTack</div>
       </nav>
-    </div>
+    </div>,
+    document.body
   );
 };
 

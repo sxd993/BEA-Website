@@ -15,18 +15,18 @@ export const ProjectPage = () => {
 
     if (!project) {
         return (
-            <div className="min-h-screen py-10 bg-background">
+            <div className="min-h-screen py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50">
                 <div className="container mx-auto px-4 text-center">
-                    <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-4xl mx-auto">
-                        <h1 className="text-2xl font-bold text-foreground mb-4">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-12 border border-gray-200 shadow-lg max-w-4xl mx-auto">
+                        <h1 className="text-2xl font-bold text-gray-900 mb-4">
                             Проект не найден
                         </h1>
-                        <p className="text-muted-foreground mb-6">
+                        <p className="text-gray-600 mb-6">
                             Запрашиваемый проект не существует или был удален
                         </p>
                         <button
                             onClick={() => navigate('/projects')}
-                            className="bg-[#b76ec7] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#b76ec7]/80 transition-colors duration-200"
+                            className="bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white px-6 py-3 rounded-full font-medium hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25"
                         >
                             Вернуться к проектам
                         </button>
@@ -37,14 +37,14 @@ export const ProjectPage = () => {
     }
 
     return (
-        <div className="min-h-screen py-10 bg-background">
+        <div className="min-h-screen py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50">
             <div className="container mx-auto px-4">
                 {/* Кнопка назад */}
                 <button
                     onClick={() => navigate('/projects')}
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200 mb-8 group"
+                    className="flex items-center gap-2 text-gray-600 hover:text-[#8e24aa] transition-colors duration-300 mb-8 group"
                 >
-                    <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-200" />
+                    <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
                     Вернуться к проектам
                 </button>
 
@@ -52,7 +52,7 @@ export const ProjectPage = () => {
                     {/* Заголовок проекта */}
                     <div className="text-center mb-12">
                         <div className="flex items-center justify-center gap-4 mb-4">
-                            <h1 className="text-3xl md:text-5xl font-bold text-foreground">
+                            <h1 className="text-3xl md:text-5xl font-bold leading-tight bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">
                                 {project.name}
                             </h1>
                         </div>
@@ -63,7 +63,7 @@ export const ProjectPage = () => {
                             </p>
                         )}
 
-                        <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                             {project.description}
                         </p>
                     </div>
@@ -71,7 +71,7 @@ export const ProjectPage = () => {
                     {/* Блок с фото + деталями снизу */}
                     <div className="flex flex-col gap-12 mb-12 items-start">
                         {/* Изображение проекта */}
-                        <div className="rounded-2xl overflow-hidden shadow-xl border border-border group transition-transform duration-300 hover:scale-[1.02]">
+                        <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-200 group transition-transform duration-300 hover:scale-[1.02] bg-white/80 backdrop-blur-sm">
                             {project.image ? (
                                 <img
                                     src={project.image}
@@ -79,7 +79,7 @@ export const ProjectPage = () => {
                                     className="w-full h-full object-cover"
                                 />
                             ) : (
-                                <div className="w-full h-64 bg-gradient-to-br from-[#b76ec7] to-[#b76ec7]/70 flex items-center justify-center">
+                                <div className="w-full h-64 bg-gradient-to-br from-[#b76ec7] to-[#8e24aa] flex items-center justify-center">
                                     <div className="text-white text-6xl font-bold">
                                         {project.name.charAt(0)}
                                     </div>
@@ -90,7 +90,7 @@ export const ProjectPage = () => {
                         {/* Детали проекта cнизу */}
                         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
                             {/* Информация о проекте */}
-                            <div className="bg-card p-6 rounded-xl border border-border shadow-lg">
+                            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 shadow-lg">
                                 <h3 className="text-lg font-semibold text-foreground mb-6">
                                     Детали проекта
                                 </h3>
@@ -119,7 +119,7 @@ export const ProjectPage = () => {
                             </div>
 
                             {/* Технологии */}
-                            <div className="bg-card p-6 rounded-xl border border-border shadow-lg">
+                            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 shadow-lg">
                                 <h3 className="text-lg font-semibold text-foreground mb-4">
                                     Технологии
                                 </h3>
@@ -127,7 +127,7 @@ export const ProjectPage = () => {
                                     {project.tech.map((tech, index) => (
                                         <li
                                             key={index}
-                                            className="bg-muted text-foreground text-sm font-medium px-3 py-2 rounded-lg"
+                                            className="px-3 py-1.5 bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 text-[#b76ec7] text-xs rounded-full border border-[#b76ec7]/20 shadow-sm"
                                         >
                                             {tech}
                                         </li>
@@ -136,7 +136,7 @@ export const ProjectPage = () => {
                             </div>
 
                             {/* Действия */}
-                            <div className="bg-card p-6 rounded-xl border border-border shadow-lg">
+                            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-gray-200 shadow-lg">
                                 <h3 className="text-lg font-semibold text-foreground mb-4">
                                     Ссылки
                                 </h3>
@@ -144,7 +144,7 @@ export const ProjectPage = () => {
                                     {project.github && (
                                         <button
                                             onClick={() => window.open(project.github, '_blank')}
-                                            className="w-full flex items-center justify-center gap-3 bg-foreground text-background py-3 px-4 rounded-lg font-medium hover:bg-foreground/90 transition-colors duration-200"
+                                            className="w-full flex items-center justify-center gap-3 bg-gray-900 text-white py-3 px-4 rounded-full font-medium hover:bg-gray-800 transition-colors duration-200"
                                         >
                                             <Github className="w-5 h-5" />
                                             Исходный код
@@ -153,7 +153,7 @@ export const ProjectPage = () => {
                                     {project.demo && (
                                         <button
                                             onClick={() => window.open(project.demo, '_blank')}
-                                            className="w-full flex items-center justify-center gap-3 bg-[#b76ec7] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#b76ec7]/80 transition-colors duration-200"
+                                            className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white py-3 px-4 rounded-full font-medium hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25"
                                         >
                                             <ExternalLink className="w-5 h-5" />
                                             Демо версия
@@ -168,7 +168,7 @@ export const ProjectPage = () => {
                     <div className="grid md:grid-cols-3 gap-12">
                         <div className="md:col-span-2">
                             {/* Описание */}
-                            <div className="bg-card p-8 rounded-xl border border-border shadow-lg mb-8">
+                            <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg mb-8">
                                 <h2 className="text-2xl font-bold text-foreground mb-6">
                                     О проекте
                                 </h2>
@@ -179,7 +179,7 @@ export const ProjectPage = () => {
 
                             {/* Функционал */}
                             {project.features && project.features.length > 0 && (
-                                <div className="bg-card p-8 rounded-xl border border-border shadow-lg mb-8">
+                                <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg mb-8">
                                     <h2 className="text-2xl font-bold text-foreground mb-6">
                                         Ключевые возможности
                                     </h2>
@@ -196,7 +196,7 @@ export const ProjectPage = () => {
 
                             {/* Вызовы */}
                             {project.challenges && (
-                                <div className="bg-card p-8 rounded-xl border border-border shadow-lg">
+                                <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
                                     <h2 className="text-2xl font-bold text-foreground mb-6">
                                         Технические вызовы
                                     </h2>
@@ -209,7 +209,7 @@ export const ProjectPage = () => {
 
                         {/* CTA справа */}
                         <div>
-                            <div className="bg-gradient-to-r from-[#b76ec7]/10 to-[#b76ec7]/5 p-6 rounded-xl border border-[#b76ec7]/20">
+                            <div className="bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 p-6 rounded-2xl border border-[#b76ec7]/20">
                                 <h3 className="text-lg font-semibold text-foreground mb-3">
                                     Понравился проект?
                                 </h3>
@@ -220,7 +220,7 @@ export const ProjectPage = () => {
                                     href="https://t.me/sxdddddddddd"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-full bg-[#b76ec7] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#b76ec7]/80 transition-colors duration-200 block text-center"
+                                    className="w-full bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white py-3 px-4 rounded-full font-medium hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25 block text-center"
                                 >
                                     Обсудить проект
                                 </a>

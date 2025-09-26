@@ -8,33 +8,33 @@ export const TermsOfService = () => {
     }, []);
 
     return (
-        <div className="min-h-screen py-10 bg-background">
+        <div className="min-h-screen py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50">
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
                     {/* Заголовок */}
                     <div className="text-center mb-12">
-                        <div className="w-16 h-16 bg-[#b76ec7] rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div className="w-16 h-16 bg-gradient-to-br from-[#b76ec7] to-[#8e24aa] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                             <FileText className="w-8 h-8 text-white" />
                         </div>
-                        <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                        <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">
                             Пользовательское соглашение
                         </h1>
-                        <p className="text-xl text-muted-foreground">
+                        <p className="text-xl text-gray-600">
                             Условия использования сайта и получения услуг bagsTack
                         </p>
-                        <p className="text-sm text-muted-foreground mt-4">
+                        <p className="text-sm text-gray-500 mt-4">
                             Последнее обновление: 12 сентября 2025 г.
                         </p>
                     </div>
 
                     <div className="space-y-8">
                         {/* 1. Общие положения */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                                 <FileText className="w-6 h-6 text-[#b76ec7]" />
                                 1. Общие положения
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     Настоящее Пользовательское соглашение (далее — «Соглашение») регулирует отношения между
                                     командой разработчиков bagsTack (далее — «Исполнитель», «Мы») и физическими или юридическими
@@ -49,26 +49,26 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 2. Определения */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                                 <Settings className="w-6 h-6 text-[#b76ec7]" />
                                 2. Определения
                             </h2>
                             <div className="space-y-4">
                                 <div className="grid gap-4">
-                                    <div className="bg-muted/50 p-4 rounded-lg">
+                                    <div className="bg-white/70 border border-gray-200 p-4 rounded-xl">
                                         <h4 className="font-semibold text-foreground mb-2">Сайт</h4>
                                         <p className="text-sm text-muted-foreground">
                                             Веб-ресурс bagsTack, включающий все страницы, формы, калькуляторы и интерактивные элементы
                                         </p>
                                     </div>
-                                    <div className="bg-muted/50 p-4 rounded-lg">
+                                    <div className="bg-white/70 border border-gray-200 p-4 rounded-xl">
                                         <h4 className="font-semibold text-foreground mb-2">Услуги</h4>
                                         <p className="text-sm text-muted-foreground">
                                             IT-услуги по разработке веб-приложений, мобильных приложений, дизайну и консультациям
                                         </p>
                                     </div>
-                                    <div className="bg-muted/50 p-4 rounded-lg">
+                                    <div className="bg-white/70 border border-gray-200 p-4 rounded-xl">
                                         <h4 className="font-semibold text-foreground mb-2">Контент</h4>
                                         <p className="text-sm text-muted-foreground">
                                             Все материалы, размещенные на Сайте: тексты, изображения, код, дизайн-макеты
@@ -79,19 +79,19 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 3. Предоставляемые услуги */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                                 <Users className="w-6 h-6 text-[#b76ec7]" />
                                 3. Предоставляемые услуги
                             </h2>
                             <div className="space-y-6">
-                                <p className="text-muted-foreground">
+                                <p className="text-gray-600">
                                     bagsTack предоставляет следующие виды услуг:
                                 </p>
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="space-y-3">
                                         <h4 className="font-semibold text-foreground">Разработка:</h4>
-                                        <ul className="space-y-2 text-sm text-muted-foreground">
+                                        <ul className="space-y-2 text-sm text-gray-600">
                                             <li className="flex items-start gap-2">
                                                 <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
                                                 Веб-приложения и сайты
@@ -112,7 +112,7 @@ export const TermsOfService = () => {
                                     </div>
                                     <div className="space-y-3">
                                         <h4 className="font-semibold text-foreground">Дополнительно:</h4>
-                                        <ul className="space-y-2 text-sm text-muted-foreground">
+                                        <ul className="space-y-2 text-sm text-gray-600">
                                             <li className="flex items-start gap-2">
                                                 <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
                                                 UI/UX дизайн
@@ -136,18 +136,18 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 4. Права и обязанности сторон */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                                 <Scale className="w-6 h-6 text-[#b76ec7]" />
                                 4. Права и обязанности сторон
                             </h2>
                             <div className="space-y-6">
                                 {/* Права исполнителя */}
                                 <div>
-                                    <h3 className="text-xl font-semibold text-foreground mb-4">
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
                                         4.1. Права Исполнителя:
                                     </h3>
-                                    <ul className="space-y-2 text-muted-foreground">
+                                    <ul className="space-y-2 text-gray-600">
                                         <li className="flex items-start gap-2">
                                             <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
                                             Требовать полную и своевременную оплату выполненных работ
@@ -169,10 +169,10 @@ export const TermsOfService = () => {
 
                                 {/* Обязанности исполнителя */}
                                 <div>
-                                    <h3 className="text-xl font-semibold text-foreground mb-4">
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
                                         4.2. Обязанности Исполнителя:
                                     </h3>
-                                    <ul className="space-y-2 text-muted-foreground">
+                                    <ul className="space-y-2 text-gray-600">
                                         <li className="flex items-start gap-2">
                                             <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
                                             Выполнять работы в соответствии с техническим заданием и в установленные сроки
@@ -194,10 +194,10 @@ export const TermsOfService = () => {
 
                                 {/* Права заказчика */}
                                 <div>
-                                    <h3 className="text-xl font-semibold text-foreground mb-4">
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
                                         4.3. Права Заказчика:
                                     </h3>
-                                    <ul className="space-y-2 text-muted-foreground">
+                                    <ul className="space-y-2 text-gray-600">
                                         <li className="flex items-start gap-2">
                                             <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
                                             Требовать выполнения работ в соответствии с техническим заданием
@@ -219,10 +219,10 @@ export const TermsOfService = () => {
 
                                 {/* Обязанности заказчика */}
                                 <div>
-                                    <h3 className="text-xl font-semibold text-foreground mb-4">
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
                                         4.4. Обязанности Заказчика:
                                     </h3>
-                                    <ul className="space-y-2 text-muted-foreground">
+                                    <ul className="space-y-2 text-gray-600">
                                         <li className="flex items-start gap-2">
                                             <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
                                             Своевременно производить оплату в соответствии с договором
@@ -245,11 +245,11 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 5. Условия оплаты */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 5. Условия оплаты и цены
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <ul className="space-y-3">
                                     <li className="flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
@@ -272,11 +272,11 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 6. Интеллектуальная собственность */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 6. Интеллектуальная собственность
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <ul className="space-y-3">
                                     <li className="flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
@@ -299,12 +299,12 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 7. Ограничения ответственности */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                                 <AlertTriangle className="w-6 h-6 text-[#b76ec7]" />
                                 7. Ограничения ответственности
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     Исполнитель не несет ответственности за:
                                 </p>
@@ -326,7 +326,7 @@ export const TermsOfService = () => {
                                         Последствия использования незаконного контента, предоставленного Заказчиком
                                     </li>
                                 </ul>
-                                <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mt-6">
+                                <div className="bg-amber-50 border-l-4 border-amber-400 p-4 mt-6 rounded-lg">
                                     <p className="text-amber-800 text-sm">
                                         <strong>Гарантия:</strong> Мы предоставляем гарантию на выполненные работы сроком от 3 до 12 месяцев
                                         в зависимости от типа проекта. Гарантия покрывает исправление ошибок, связанных с качеством нашей работы.
@@ -336,11 +336,11 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 8. Конфиденциальность */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 8. Конфиденциальность
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     Стороны обязуются сохранять конфиденциальность всей информации, полученной в ходе сотрудничества:
                                 </p>
@@ -366,11 +366,11 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 9. Заключительные положения */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 9. Заключительные положения
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <ul className="space-y-3">
                                     <li className="flex items-start gap-2">
                                         <span className="w-1.5 h-1.5 bg-[#b76ec7] rounded-full mt-2 flex-shrink-0"></span>
@@ -393,15 +393,15 @@ export const TermsOfService = () => {
                         </section>
 
                         {/* 10. Контактная информация */}
-                        <section className="bg-card p-8 rounded-xl border border-border shadow-lg">
-                            <h2 className="text-2xl font-bold text-foreground mb-6">
+                        <section className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-gray-200 shadow-lg">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">
                                 10. Контактная информация
                             </h2>
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
+                            <div className="space-y-4 text-gray-600 leading-relaxed">
                                 <p>
                                     По всем вопросам, связанным с настоящим Соглашением, обращайтесь к нам:
                                 </p>
-                                <div className="bg-muted/50 p-6 rounded-lg">
+                                <div className="bg-white/70 p-6 rounded-xl border border-gray-200">
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3">
                                             <svg className="w-5 h-5 text-[#b76ec7]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -423,7 +423,7 @@ export const TermsOfService = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <p className="text-sm text-muted-foreground mt-4">
+                                <p className="text-sm text-gray-500 mt-4">
                                     Мы стремимся к долгосрочному сотрудничеству и готовы обсуждать любые вопросы для достижения взаимовыгодных условий.
                                 </p>
                             </div>

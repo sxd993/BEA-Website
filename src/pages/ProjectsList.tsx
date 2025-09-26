@@ -22,18 +22,18 @@ export const ProjectsList = () => {
     const categories = ['Все', ...Array.from(new Set(PROJECTS.map(p => p.category)))];
 
     return (
-        <section className="min-h-screen py-10 bg-background">
+        <section className="min-h-screen py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 border-b border-gray-200/50">
             <div className="container mx-auto px-4">
                 {/* Заголовок */}
-                <div className="text-center mb-5">
-                    <h1 className="text-3xl md:text-5xl font-bold mb-4">
+                <div className="text-center mb-10">
+                    <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">
                         Наши проекты
                     </h1>
                 </div>
 
                 <div className="max-w-6xl mx-auto">
                     {/* Поиск */}
-                    <div className="mb-8">
+                    <div className="mb-10">
                         <div className="relative max-w-4xl mx-auto">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <Search className="h-5 w-5 text-muted-foreground" />
@@ -43,21 +43,21 @@ export const ProjectsList = () => {
                                 placeholder="Поиск проектов..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-12 pr-4 py-3 bg-card border border-border rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#b76ec7]/20 focus:border-[#b76ec7] transition-all duration-300"
+                                className="w-full pl-12 pr-4 py-3 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#b76ec7]/20 focus:border-[#b76ec7] transition-all duration-300 shadow-sm"
                             />
                         </div>
                     </div>
 
                     {/* Фильтр категорий */}
-                    <div className="mb-8">
+                    <div className="mb-10">
                         <div className="flex flex-wrap justify-center gap-3">
                             {categories.map((category) => (
                                 <button
                                     key={category}
                                     onClick={() => setSelectedCategory(category)}
-                                    className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${selectedCategory === category
-                                            ? "bg-[#b76ec7] text-white shadow-lg hover:bg-[#b76ec7]/80"
-                                            : "bg-card text-foreground border border-border hover:bg-[#b76ec7] hover:text-white hover:border-[#b76ec7]"
+                                    className={`px-4 py-2 rounded-full text-sm md:text-base border shadow-sm transition-all duration-300 ${selectedCategory === category
+                                            ? "bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white border-[#b76ec7]/0"
+                                            : "bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 text-[#8e24aa] border-[#b76ec7]/20 hover:from-[#b76ec7]/20 hover:to-[#8e24aa]/20"
                                         }`}
                                 >
                                     {category}
@@ -102,17 +102,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     };
 
     return (
-        <div className="bg-card rounded-xl border border-border shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
             {/* Изображение проекта */}
                 <div className="relative aspect-[16/9] w-full overflow-hidden">
                 {project.image ? (
                     <img
                     src={project.image}
                     alt={project.name}
-                    className="w-full h-full object-contain bg-neutral-100 p-2"
+                    className="w-full h-full object-contain bg-gradient-to-br from-gray-50 to-gray-100 p-2"
                     />
                 ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-[#b76ec7] to-[#b76ec7]/70 flex items-center justify-center">
+                    <div className="w-full h-full bg-gradient-to-br from-[#b76ec7] to-[#8e24aa] flex items-center justify-center">
                     <div className="text-white text-4xl font-bold">
                         {project.name.charAt(0)}
                     </div>
@@ -123,7 +123,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {/* Контент карточки */}
             <div className="p-6">
                 <div className="mb-3">
-                    <h3 className="text-xl font-semibold text-foreground group-hover:text-[#b76ec7] transition-colors duration-300 mb-2">
+                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-[#8e24aa] transition-colors duration-300 mb-2">
                         {project.name}
                     </h3>
 
@@ -135,7 +135,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 </div>
 
                 {project.description && (
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-3">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
                         {project.description}
                     </p>
                 )}
@@ -154,13 +154,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                         {project.tech.slice(0, 4).map((tech, index) => (
                             <span
                                 key={`${tech}-${index}`}
-                                className="bg-muted text-foreground text-xs font-medium px-3 py-1 rounded-lg"
+                                className="px-3 py-1.5 bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 text-[#b76ec7] text-xs rounded-full border border-[#b76ec7]/20 shadow-sm"
                             >
                                 {tech}
                             </span>
                         ))}
                         {project.tech.length > 4 && (
-                            <span className="text-muted-foreground text-xs font-medium px-3 py-1">
+                            <span className="px-3 py-1.5 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-600 text-xs rounded-full border border-gray-300/50 shadow-sm">
                                 +{project.tech.length - 4} еще
                             </span>
                         )}
@@ -171,7 +171,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 <div className="flex gap-3">
                     <button
                         onClick={handleViewDetails}
-                        className="flex-1 bg-[#b76ec7] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#b76ec7]/80 transition-colors duration-200"
+                        className="flex-1 bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white py-3 px-4 rounded-full font-medium hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25"
                     >
                         Подробнее
                     </button>
@@ -181,7 +181,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                                 e.stopPropagation();
                                 window.open(project.github, '_blank');
                             }}
-                            className="px-4 py-3 bg-card border border-border rounded-lg text-foreground hover:bg-muted transition-colors duration-200"
+                            className="px-4 py-3 bg-white/80 border border-gray-200 rounded-full text-gray-800 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 transition-all duration-300"
                             title="Открыть GitHub"
                         >
                             <Github className="w-5 h-5" />
@@ -193,7 +193,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                                 e.stopPropagation();
                                 window.open(project.demo, '_blank');
                             }}
-                            className="px-4 py-3 bg-card border border-border rounded-lg text-foreground hover:bg-muted transition-colors duration-200"
+                            className="px-4 py-3 bg-white/80 border border-gray-200 rounded-full text-gray-800 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 transition-all duration-300"
                             title="Открыть демо"
                         >
                             <ExternalLink className="w-5 h-5" />
@@ -210,7 +210,7 @@ const EmptyStateCard = () => {
     return (
         <div className="col-span-full">
             <div className="text-center py-16">
-                <div className="bg-card rounded-xl p-12 border border-border shadow-lg max-w-4xl mx-auto">
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-12 border border-gray-200 shadow-lg max-w-4xl mx-auto">
                     <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
                         <Search className="w-8 h-8 text-muted-foreground" />
                     </div>
