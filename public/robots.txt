@@ -1,19 +1,7 @@
 User-agent: *
 Allow: /
 
-
 Sitemap: https://bagstack.ru/sitemap.xml
-
-
-Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
-Disallow: /node_modules/
-Disallow: /src/
-Disallow: *.json$
-Disallow: /vite.config.*
-Disallow: /package*.json
-
 
 Allow: /
 Allow: /projects
