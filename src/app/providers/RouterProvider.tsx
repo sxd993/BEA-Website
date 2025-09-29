@@ -1,8 +1,9 @@
-import { HomePage } from "../../pages/HomePage"
-import { ProjectsList } from "../../pages/ProjectsList"
-import { ProjectPage } from "../../pages/ProjectPage"
-import { TermsOfService } from "../../features/home/components/TermsOfService"
-import { PrivacyPolicy } from "../../features/home/components/PrivacyPolicy"
+import { HomePage } from "../../pages/HomePage";
+import { ProjectsList } from "../../pages/ProjectsList";
+import { ProjectPage } from "../../pages/ProjectPage";
+import { NotFoundPage } from "../../pages/NotFoundPage";
+import { TermsOfService } from "../../features/home/components/TermsOfService";
+import { PrivacyPolicy } from "../../features/home/components/PrivacyPolicy";
 
 export const RouterProvider = () => {
   return [
@@ -11,5 +12,7 @@ export const RouterProvider = () => {
     { path: "/projects/:id", element: <ProjectPage /> },
     { path: "/privacy-policy", element: <PrivacyPolicy /> },
     { path: "/terms-of-service", element: <TermsOfService /> },
+    // Catch-all route для обработки несуществующих страниц
+    { path: "*", element: <NotFoundPage /> },
   ]
 }

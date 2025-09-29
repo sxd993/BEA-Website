@@ -1,4 +1,4 @@
-import { Mail, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
@@ -24,10 +24,23 @@ export const Footer = () => {
               <div className="space-y-4">
                 <div className="flex items-center justify-center space-x-3">
                   <div className="w-8 h-8 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                    <Mail className="h-4 w-4 text-gray-600" />
+                    {/* Avito SVG Icon */}
+                    <svg className="h-4 w-4 text-gray-600" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+                      <g>
+                        <path fill="currentColor" d="M61.924 172.07c26.468 0 47.924-21.456 47.924-47.924S88.392 76.222 61.924 76.222 14 97.678 14 124.146s21.456 47.925 47.924 47.925z" stroke="currentColor" strokeWidth="8.63157" transform="translate(7.024 7.024) scale(.92683)"/>
+                        <path fill="currentColor" d="M149.044 166.007c15.992 0 28.956-12.963 28.956-28.955 0-15.992-12.964-28.955-28.956-28.955-15.99 0-28.954 12.963-28.954 28.955 0 15.992 12.963 28.955 28.954 28.955z" stroke="currentColor" strokeWidth="8.63157" transform="translate(7.024 7.024) scale(.92683)"/>
+                        <path fill="currentColor" d="M71.086 65.979c9.898 0 17.922-8.024 17.922-17.921 0-9.898-8.024-17.922-17.922-17.922-9.898 0-17.921 8.024-17.921 17.922 0 9.897 8.023 17.921 17.921 17.921z" stroke="currentColor" strokeWidth="8.63157" transform="translate(7.024 7.024) scale(.92683)"/>
+                        <path fill="currentColor" d="M137.789 97.856c21.519 0 38.964-17.444 38.964-38.963 0-21.52-17.445-38.964-38.964-38.964-21.52 0-38.964 17.445-38.964 38.964s17.445 38.963 38.964 38.963z" stroke="currentColor" strokeWidth="8.63157" transform="translate(7.024 7.024) scale(.92683)"/>
+                      </g>
+                    </svg>
                   </div>
-                  <a href="mailto:gurbanovich2014@yandex.ru" className="text-gray-700 hover:text-[#8e24aa] transition-colors duration-300">
-                    gurbanovich2014@yandex.ru
+                  <a
+                    href="https://www.avito.ru/chelyabinsk/predlozheniya_uslug/razrabotka_saytov_na_react_7640377222?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJ3U2taS1VybHRZeW9NZHJSIjt9OsT7qT8AAAA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-[#8e24aa] transition-colors duration-300"
+                  >
+                    Avito
                   </a>
                 </div>
                 <div className="flex items-center justify-center space-x-3">
@@ -48,9 +61,11 @@ export const Footer = () => {
                 </div>
                 <div className="flex items-center justify-center space-x-3">
                   <div className="w-8 h-8 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                    <MapPin className="h-4 w-4 text-gray-600" />
+                    <Mail className="h-4 w-4 text-gray-600" />
                   </div>
-                  <span className="text-gray-700">Челябинск, Россия</span>
+                  <a href="mailto:gurbanovich2014@yandex.ru" className="text-gray-700 hover:text-[#8e24aa] transition-colors duration-300">
+                    gurbanovich2014@yandex.ru
+                  </a>
                 </div>
               </div>
             </div>
