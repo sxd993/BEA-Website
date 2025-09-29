@@ -8,27 +8,25 @@ export const Calculator = () => {
 
   const projectTypes = {
     landing: { name: "Лендинг", price: 25000 },
-    corporate: { name: "Корпоративный сайт", price: 60000 },
-    ecommerce: { name: "Интернет-магазин", price: 120000 },
-    webapp: { name: "Веб-приложение", price: 180000 },
-    mobile: { name: "Мобильное приложение", price: 250000 },
-    system: { name: "Комплексная система", price: 400000 },
+    corporate: { name: "Корпоративный сайт", price: 50000 },
+    ecommerce: { name: "Интернет-магазин", price: 100000 },
+    webapp: { name: "Веб-приложение", price: 150000 },
+    mobile: { name: "Мобильное приложение", price: 200000 },
+    system: { name: "Комплексная система", price: 300000 },
   };
 
   const additionalFeatures = {
     admin: { name: "Панель администратора", price: 40000 },
-    payment: { name: "Система платежей", price: 60000 },
-    analytics: { name: "Аналитика и отчеты", price: 30000 },
+    payment: { name: "Система платежей", price: 30000 },
     integration: { name: "Интеграции с API", price: 50000 },
-    chat: { name: "Чат поддержка", price: 20000 },
-    mobile_app: { name: "Мобильная версия", price: 80000 },
+    chat: { name: "Чат поддержка", price: 25000 },
   };
 
   const timelineMultipliers = {
-    urgent: { name: "Срочно (до 2 недель)", multiplier: 1.8 },
-    fast: { name: "Быстро (до 1 месяца)", multiplier: 1.4 },
-    standard: { name: "Стандартно (2-3 месяца)", multiplier: 1 },
-    extended: { name: "Не спешим (3+ месяца)", multiplier: 0.85 },
+    urgent: { name: "Срочно (до 2 недель)", multiplier: 1.2 },
+    fast: { name: "Быстро (до 1 месяца)", multiplier: 1.1 },
+    standard: { name: "Стандартно (1-2 месяца)", multiplier: 1 },
+    extended: { name: "Не спешим (2+ месяца)", multiplier: 0.85 },
   };
 
   const handleFeatureChange = (featureId: string) => {
