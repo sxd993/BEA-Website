@@ -287,7 +287,6 @@
     
     <!-- Security теги -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     
@@ -295,7 +294,7 @@
     <link rel="manifest" href="/site.webmanifest">
     
     <!-- Preload критических ресурсов -->
-    <link rel="preload" href="/src/main.tsx" as="script">
+    <link rel="modulepreload" href="/src/main.tsx">
   </head>
   <body>
     <div id="root"></div>

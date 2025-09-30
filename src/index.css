@@ -20,10 +20,20 @@ html, body {
     50% { box-shadow: 0 0 30px rgba(183, 110, 199, 0.5); }
 }
 
-@keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+@keyframes wave {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
+
+
+
+@keyframes floatStars {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-40px) translateX(30px); }
+    50% { transform: translateY(-20px) translateX(-25px); }
+    75% { transform: translateY(-35px) translateX(20px); }
+}
+
 
 .animate-float {
     animation: float 3s ease-in-out infinite;
@@ -33,11 +43,10 @@ html, body {
     animation: glow 2s ease-in-out infinite;
 }
 
-.animate-shimmer {
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-    background-size: 200% 100%;
-    animation: shimmer 2s infinite;
+.wave-letter {
+    animation: wave 1s ease-in-out infinite;
 }
+
 
 /* Плавные переходы для всех элементов */
 * {
@@ -73,4 +82,25 @@ html, body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(45deg, #8e24aa, #b76ec7);
+}
+
+
+.animate-float-stars {
+    animation: floatStars 6s ease-in-out infinite;
+}
+
+
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+    .animate-float-stars {
+        animation-duration: 8s; /* Slower stars on mobile */
+    }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1024px) {
+    .animate-float-stars {
+        animation-duration: 5s; /* Faster stars on large screens */
+    }
 }

@@ -68,7 +68,7 @@ export const Calculator = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-gray-200/50 shadow-lg">
+            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-gray-200/50">
 
               {/* Тип проекта */}
               <AccordionSection title="Тип проекта" titleClassName="text-sm md:text-base">
