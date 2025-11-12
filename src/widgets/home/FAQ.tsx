@@ -1,5 +1,5 @@
-import { AccordionSection } from '../../../shared/ui/AccordionSection';
-import { faqData } from '../const/faqData';
+import { AccordionSection } from '../../shared/ui/AccordionSection';
+import { faqData } from '../../shared/lib/faqData';
 
 export const FAQ = () => {
   return (

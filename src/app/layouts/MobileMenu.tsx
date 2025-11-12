@@ -1,14 +1,9 @@
 import { Menu, X } from "lucide-react";
-import React, { useEffect } from "react";
+import React from "react";
 import { createPortal } from "react-dom";
-
-type MobileMenuProps = {
-  navigationItems: { label: string; sectionId: string }[];
-  onClose: () => void;
-  onLogoClick: () => void;
-  onNavigateProjects: () => void;
-  onNavigateToSection: (sectionId: string) => void;
-};
+import { useBodyScrollLock } from "../../shared/hooks/useBodyScrollLock";
+import type { MobileMenuProps, MobileMenuButtonProps } from "../../shared/lib/types/mobileMenu";
+import { TELEGRAM_LINK } from "../../shared/lib/headerData";
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({
   navigationItems,
@@ -17,13 +12,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
   onNavigateProjects,
   onNavigateToSection,
 }) => {
-  useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, []);
+  useBodyScrollLock(true);
 
   return createPortal(
     <div className="fixed inset-0 z-[1000] h-screen bg-white/95 backdrop-blur-md flex flex-col overflow-hidden">
@@ -77,7 +66,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
             Наши проекты
           </button>
           <a
-            href="https://t.me/sxdddddddddd"
+            href={TELEGRAM_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full h-12 px-4 text-center leading-[48px] bg-white text-gray-800 border-2 border-gray-200 rounded-full hover:border-[#b76ec7] hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
@@ -93,11 +82,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
     </div>,
     document.body
   );
-};
-
-type MobileMenuButtonProps = {
-  isOpen: boolean;
-  onToggle: () => void;
 };
 
 export const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ isOpen, onToggle }) => {

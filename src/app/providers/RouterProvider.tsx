@@ -2,8 +2,8 @@ import { HomePage } from "../../pages/HomePage";
 import { ProjectsList } from "../../pages/ProjectsList";
 import { ProjectPage } from "../../pages/ProjectPage";
 import { NotFoundPage } from "../../pages/NotFoundPage";
-import { TermsOfService } from "../../features/home/components/TermsOfService";
-import { PrivacyPolicy } from "../../features/home/components/PrivacyPolicy";
+import { TermsOfService } from "../../shared/ui/components/TermsOfService";
+import { PrivacyPolicy } from "../../shared/ui/components/PrivacyPolicy";
 
 export const RouterProvider = () => {
   return [

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const AccordionSection = ({ title, children, titleClassName = "" }: { title: string, children: React.ReactNode, titleClassName?: string }) => {
   const [isOpen, setIsOpen] = useState(false);

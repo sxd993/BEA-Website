@@ -1,58 +1,24 @@
-import { useState } from "react";
-import { AccordionSection } from "../../../shared/ui/AccordionSection";
+import { AccordionSection } from "../../shared/ui/AccordionSection";
+import { useCalculator } from "../../features/calculator/hooks/useCalculator";
+import {
+  projectTypes,
+  additionalFeatures,
+  timelineMultipliers,
+  type AdditionalFeature,
+  type ProjectType,
+  type Timeline,
+} from "../../features/calculator/const/calculatorData";
 
 export const Calculator = () => {
-  const [projectType, setProjectType] = useState("landing");
-  const [features, setFeatures] = useState<string[]>([]);
-  const [timeline, setTimeline] = useState("standard");
-
-  const projectTypes = {
-    landing: { name: "Лендинг", price: 25000 },
-    corporate: { name: "Корпоративный сайт", price: 50000 },
-    ecommerce: { name: "Интернет-магазин", price: 100000 },
-    webapp: { name: "Веб-приложение", price: 150000 },
-    mobile: { name: "Мобильное приложение", price: 200000 },
-    system: { name: "Комплексная система", price: 300000 },
-  };
-
-  const additionalFeatures = {
-    admin: { name: "Панель администратора", price: 40000 },
-    payment: { name: "Система платежей", price: 30000 },
-    integration: { name: "Интеграции с API", price: 50000 },
-    chat: { name: "Чат поддержка", price: 25000 },
-  };
-
-  const timelineMultipliers = {
-    urgent: { name: "Срочно (до 2 недель)", multiplier: 1.2 },
-    fast: { name: "Быстро (до 1 месяца)", multiplier: 1.1 },
-    standard: { name: "Стандартно (1-2 месяца)", multiplier: 1 },
-    extended: { name: "Не спешим (2+ месяца)", multiplier: 0.85 },
-  };
-
-  const handleFeatureChange = (featureId: string) => {
-    if (features.includes(featureId)) {
-      setFeatures(features.filter((f: string) => f !== featureId));
-    } else {
-      setFeatures([...features, featureId]);
-    }
-  };
-
-  const calculatePrice = () => {
-    const basePrice =
-      projectTypes[projectType as keyof typeof projectTypes].price;
-    const featuresPrice = features.reduce((sum: number, featureId: string) => {
-      return (
-        sum +
-        additionalFeatures[featureId as keyof typeof additionalFeatures].price
-      );
-    }, 0);
-    const totalPrice =
-      (basePrice + featuresPrice) *
-      timelineMultipliers[timeline as keyof typeof timelineMultipliers]
-        .multiplier;
-
-    return Math.round(totalPrice);
-  };
+  const {
+    projectType,
+    setProjectType,
+    features,
+    timeline,
+    setTimeline,
+    handleFeatureChange,
+    calculatePrice,
+  } = useCalculator();
 
   return (
     <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 border-b border-gray-200/50">
@@ -75,24 +41,26 @@ export const Calculator = () => {
                 <div>
                   <AccordionSection title="Тип проекта" titleClassName="text-sm md:text-base">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                      {Object.entries(projectTypes).map(([key, type]) => (
-                        <label key={key} className="cursor-pointer">
-                          <div
-                            className={`p-3 md:p-4 border rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 hover:shadow-md hover:-translate-y-1 ${
-                              projectType === key
-                                ? "border-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 shadow-md shadow-[#b76ec7]/20"
-                                : "border-gray-200/50 hover:border-[#b76ec7]/50"
-                            }`}
-                          >
-                            <div className="flex items-center gap-3">
-                              <input
-                                type="radio"
-                                name="projectType"
-                                value={key}
-                                checked={projectType === key}
-                                onChange={(e) => setProjectType(e.target.value)}
-                                className="w-4 h-4 text-[#b76ec7] focus:ring-0 focus:outline-none flex-shrink-0"
-                              />
+                      {Object.entries(projectTypes).map(([key, type]) => {
+                        const projectTypeKey = key as ProjectType;
+                        return (
+                          <label key={key} className="cursor-pointer">
+                            <div
+                              className={`p-3 md:p-4 border rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 hover:shadow-md hover:-translate-y-1 ${
+                                projectType === projectTypeKey
+                                  ? "border-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 shadow-md shadow-[#b76ec7]/20"
+                                  : "border-gray-200/50 hover:border-[#b76ec7]/50"
+                              }`}
+                            >
+                              <div className="flex items-center gap-3">
+                                <input
+                                  type="radio"
+                                  name="projectType"
+                                  value={key}
+                                  checked={projectType === projectTypeKey}
+                                  onChange={(e) => setProjectType(e.target.value as ProjectType)}
+                                  className="w-4 h-4 text-[#b76ec7] focus:ring-0 focus:outline-none flex-shrink-0"
+                                />
                               <div className="flex-1 flex flex-col md:flex-row md:justify-between md:items-center gap-2 min-w-0">
                                 <span className="font-medium text-sm md:text-base break-words">
                                   {type.name}
@@ -104,7 +72,8 @@ export const Calculator = () => {
                             </div>
                           </div>
                         </label>
-                      ))}
+                        );
+                      })}
                     </div>
                   </AccordionSection>
                 </div>
@@ -113,22 +82,24 @@ export const Calculator = () => {
                 <div>
                   <AccordionSection title="Доп. функции" titleClassName="text-sm md:text-base">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                      {Object.entries(additionalFeatures).map(([key, feature]) => (
-                        <label key={key} className="cursor-pointer">
-                          <div
-                            className={`p-3 border rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 hover:shadow-md hover:-translate-y-1 ${
-                              features.includes(key)
-                                ? "border-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 shadow-md shadow-[#b76ec7]/20"
-                                : "border-gray-200/50 hover:border-[#b76ec7]/50"
-                            }`}
-                          >
-                            <div className="flex items-center gap-3">
-                              <input
-                                type="checkbox"
-                                checked={features.includes(key)}
-                                onChange={() => handleFeatureChange(key)}
-                                className="w-4 h-4 text-[#b76ec7] focus:ring-0 focus:outline-none rounded flex-shrink-0"
-                              />
+                      {Object.entries(additionalFeatures).map(([key, feature]) => {
+                        const featureKey = key as AdditionalFeature;
+                        return (
+                          <label key={key} className="cursor-pointer">
+                            <div
+                              className={`p-3 border rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 hover:shadow-md hover:-translate-y-1 ${
+                                features.includes(featureKey)
+                                  ? "border-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 shadow-md shadow-[#b76ec7]/20"
+                                  : "border-gray-200/50 hover:border-[#b76ec7]/50"
+                              }`}
+                            >
+                              <div className="flex items-center gap-3">
+                                <input
+                                  type="checkbox"
+                                  checked={features.includes(featureKey)}
+                                  onChange={() => handleFeatureChange(featureKey)}
+                                  className="w-4 h-4 text-[#b76ec7] focus:ring-0 focus:outline-none rounded flex-shrink-0"
+                                />
                               <div className="flex-1 flex flex-col md:flex-row md:justify-between md:items-center gap-2 min-w-0">
                                 <span className="font-medium text-sm md:text-base break-words">
                                   {feature.name}
@@ -140,7 +111,8 @@ export const Calculator = () => {
                             </div>
                           </div>
                         </label>
-                      ))}
+                        );
+                      })}
                     </div>
                   </AccordionSection>
                 </div>
@@ -149,24 +121,26 @@ export const Calculator = () => {
                 <div>
                   <AccordionSection title="Сроки выполнения" titleClassName="text-sm md:text-base">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                      {Object.entries(timelineMultipliers).map(([key, option]) => (
-                        <label key={key} className="cursor-pointer">
-                          <div
-                            className={`p-3 border rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 hover:shadow-md hover:-translate-y-1 ${
-                              timeline === key
-                                ? "border-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 shadow-md shadow-[#b76ec7]/20"
-                                : "border-gray-200/50 hover:border-[#b76ec7]/50"
-                            }`}
-                          >
-                            <div className="flex items-center gap-3">
-                              <input
-                                type="radio"
-                                name="timeline"
-                                value={key}
-                                checked={timeline === key}
-                                onChange={(e) => setTimeline(e.target.value)}
-                                className="w-4 h-4 text-[#b76ec7] focus:ring-0 focus:outline-none flex-shrink-0"
-                              />
+                      {Object.entries(timelineMultipliers).map(([key, option]) => {
+                        const timelineKey = key as Timeline;
+                        return (
+                          <label key={key} className="cursor-pointer">
+                            <div
+                              className={`p-3 border rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 hover:shadow-md hover:-translate-y-1 ${
+                                timeline === timelineKey
+                                  ? "border-[#b76ec7] bg-gradient-to-r from-[#b76ec7]/10 to-[#8e24aa]/10 shadow-md shadow-[#b76ec7]/20"
+                                  : "border-gray-200/50 hover:border-[#b76ec7]/50"
+                              }`}
+                            >
+                              <div className="flex items-center gap-3">
+                                <input
+                                  type="radio"
+                                  name="timeline"
+                                  value={key}
+                                  checked={timeline === timelineKey}
+                                  onChange={(e) => setTimeline(e.target.value as Timeline)}
+                                  className="w-4 h-4 text-[#b76ec7] focus:ring-0 focus:outline-none flex-shrink-0"
+                                />
                               <div className="flex-1 flex flex-col md:flex-row md:justify-between md:items-center gap-2 min-w-0">
                                 <span className="font-medium text-sm md:text-base break-words">
                                   {option.name}
@@ -194,7 +168,8 @@ export const Calculator = () => {
                             </div>
                           </div>
                         </label>
-                      ))}
+                        );
+                      })}
                     </div>
                   </AccordionSection>
                 </div>

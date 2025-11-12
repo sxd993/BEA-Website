@@ -1,36 +1,24 @@
-import { useMemo } from "react";
-import { useScrollNavigation } from "../hooks/useScrollNavigation";
+import React from "react";
+import { useScrollNavigation } from "../../shared/hooks/useScrollNavigation";
+import { useStarData } from "../../shared/hooks/useStarData";
+import { 
+  type FloatingStarProps, 
+  starSizeClasses, 
+  starOpacityClasses 
+} from "../../shared/lib/types/welcome";
+import { welcomeTexts } from "../../shared/lib/welcomeTexts";
 
-const FloatingStar = ({ 
+const FloatingStar: React.FC<FloatingStarProps> = ({ 
   size = 'small',
   left,
   top,
   moveX,
   moveY,
   duration
-}: { 
-  size?: 'small' | 'medium' | 'large';
-  left: number;
-  top: number;
-  moveX: number;
-  moveY: number;
-  duration: number;
 }) => {
-  const sizeClasses = {
-    small: 'w-1 h-1',
-    medium: 'w-1.5 h-1.5',
-    large: 'w-2 h-2'
-  };
-
-  const opacityClasses = {
-    small: 'opacity-60',
-    medium: 'opacity-70',
-    large: 'opacity-80'
-  };
-
   return (
     <div 
-      className={`absolute ${sizeClasses[size]} ${opacityClasses[size]} bg-white rounded-full`}
+      className={`absolute ${starSizeClasses[size]} ${starOpacityClasses[size]} bg-white rounded-full`}
       style={{ 
         left: `${left}%`,
         top: `${top}%`,
@@ -45,25 +33,7 @@ const FloatingStar = ({
 
 export const WelcomeMessage = () => {
   const { scrollToSection } = useScrollNavigation();
-  
-  // Generate fixed positions and unique trajectories for stars using useMemo
-  const starData = useMemo(() => {
-    const generateStarData = (count: number) => 
-      Array.from({ length: count }, () => ({
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        moveX: (Math.random() - 0.5) * 100, // Random X movement between -50px and 50px
-        moveY: (Math.random() - 0.5) * 80,  // Random Y movement between -40px and 40px
-        duration: 6 + Math.random() * 4,    // Random duration between 6-10s
-      }));
-    
-    return {
-      small: generateStarData(50),
-      medium: generateStarData(25),
-      large: generateStarData(12),
-      extraSmall: generateStarData(30),
-    };
-  }, []);
+  const starData = useStarData();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 overflow-hidden px-4 md:px-8 lg:px-12">
@@ -129,7 +99,7 @@ export const WelcomeMessage = () => {
           <div className="mb-6 sm:mb-8 md:mb-10 lg:mb-12 flex flex-col items-center">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold leading-tight sm:leading-tight md:leading-tight text-center">
               <div className="bg-gradient-to-r from-white via-[#b76ec7] via-white to-[#8e24aa] bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(183,110,199,0.5)]">
-                Создаем цифровые решения для вашего бизнеса
+                {welcomeTexts.mainTitle}
               </div>
             </h1>
           </div>
@@ -138,11 +108,11 @@ export const WelcomeMessage = () => {
           <div className="mb-8 sm:mb-10 md:mb-12 lg:mb-16 flex flex-col items-center">
             <div className="relative max-w-sm sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto w-full text-center">
               <p className="text-base sm:text-lg md:text-xl text-gray-200 sm:text-gray-100 leading-relaxed sm:leading-relaxed font-medium drop-shadow-lg text-center">
-                Профессиональная команда разработчиков с опытом{" "}
-                <span className="text-[#b76ec7] font-bold drop-shadow-[0_0_8px_rgba(183,110,199,0.6)]">5+ лет</span>
+                {welcomeTexts.subtitle}{" "}
+                <span className="text-[#b76ec7] font-bold drop-shadow-[0_0_8px_rgba(183,110,199,0.6)]">{welcomeTexts.experienceYears}</span>
               </p>
               <p className="text-sm sm:text-base md:text-lg text-gray-300 sm:text-gray-200 leading-relaxed mt-3 sm:mt-4 md:mt-5 font-normal drop-shadow-md text-center">
-                Разрабатываем веб-приложения, мобильные приложения и сложные системы
+                {welcomeTexts.description}
               </p>
             </div>
           </div>
@@ -164,7 +134,7 @@ export const WelcomeMessage = () => {
               
               {/* Text with better contrast */}
               <span className="relative z-10 flex items-center justify-center gap-2 drop-shadow-lg">
-                Рассчитать стоимость
+                {welcomeTexts.calculatorButton}
               </span>
             </button>
             
@@ -183,7 +153,7 @@ export const WelcomeMessage = () => {
               
               {/* Text with better contrast */}
               <span className="relative z-10 flex items-center justify-center gap-2 drop-shadow-lg">
-                Наша команда
+                {welcomeTexts.teamButton}
               </span>
             </button>
           </div>

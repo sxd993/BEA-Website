@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import type { Project } from '../../../shared/types';
+import type { Project } from '../../shared/types';
 
 export const useProjectsFilter = (projects: Project[]) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -22,5 +22,3 @@ export const useProjectsFilter = (projects: Project[]) => {
         filteredProjects
     };
 };
-
-export default useProjectsFilter;

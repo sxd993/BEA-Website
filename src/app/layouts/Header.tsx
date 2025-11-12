@@ -1,65 +1,15 @@
-import { useNavigate, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
- 
-import { useScrollNavigation } from "../../features/home/hooks/useScrollNavigation"; // Укажите путь к хуку
 import { MobileMenu, MobileMenuButton } from "./MobileMenu";
+import { useHeader } from "../../shared/hooks/useHeader";
+import { navigationItems, TELEGRAM_LINK, PROJECTS_PATH } from "../../shared/lib/headerData";
 
 export const Header = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const { scrollToSection } = useScrollNavigation();
-
-
-
-  // Функция для обработки клика по логотипу
-  const handleLogoClick = () => {
-    // Используйте scrollToTop из хука:
-    // scrollToTop();
-
-    // Временная реализация (удалить после подключения хука):
-    if (location.pathname !== '/') {
-      navigate('/');
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-    setIsMobileMenuOpen(false);
-  };
-
-  // Обработчик для прокрутки при переходе с другой страницы
-  useEffect(() => {
-    if (location.state?.scrollTo) {
-      const timer = setTimeout(() => {
-        scrollToSection(location.state.scrollTo);
-      }, 100);
-
-      return () => clearTimeout(timer);
-    }
-  }, [location.state, scrollToSection]);
-
-  // Закрытие мобильного меню при изменении размера экрана
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const navigationItems = [
-    { label: "Преимущества", sectionId: "advantages" },
-    { label: "Калькулятор", sectionId: "calculator" },
-    { label: "Команда", sectionId: "team" },
-    { label: "Технологии", sectionId: "technologies" },
-    { label: "FAQ", sectionId: "faq" }
-  ];
+  const {
+    isMobileMenuOpen,
+    setIsMobileMenuOpen,
+    handleLogoClick,
+    navigate,
+    scrollToSection,
+  } = useHeader();
 
   return (
     <header className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-gray-200/50 shadow-lg shadow-gray-200/20 z-50 transition-all duration-300">
@@ -89,13 +39,13 @@ export const Header = () => {
         {/* Desktop CTA Buttons */}
         <div className="hidden sm:flex items-center gap-3 sm:gap-4 sm:order-2 sm:w-full sm:justify-center xl:order-none xl:w-auto xl:justify-start">
           <button
-            onClick={() => navigate('/projects')}
+            onClick={() => navigate(PROJECTS_PATH)}
             className="inline-flex items-center justify-center h-10 min-w-[140px] px-5 text-base bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white rounded-full hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 whitespace-nowrap shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25 hover:scale-105"
           >
             Наши проекты
           </button>
           <a
-            href="https://t.me/sxdddddddddd"
+            href={TELEGRAM_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center h-10 min-w-[140px] px-5 text-base bg-white text-gray-800 border-2 border-gray-200 rounded-full hover:border-[#b76ec7] hover:bg-gradient-to-r hover:from-[#b76ec7]/5 hover:to-[#8e24aa]/5 transition-all duration-300 whitespace-nowrap shadow-md hover:shadow-lg hover:scale-105"
@@ -117,7 +67,7 @@ export const Header = () => {
           navigationItems={navigationItems}
           onClose={() => setIsMobileMenuOpen(false)}
           onLogoClick={handleLogoClick}
-          onNavigateProjects={() => navigate('/projects')}
+          onNavigateProjects={() => navigate(PROJECTS_PATH)}
           onNavigateToSection={scrollToSection}
         />
       )}

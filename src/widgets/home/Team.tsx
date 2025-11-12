@@ -1,30 +1,13 @@
-import { Github, Linkedin, Mail, User } from 'lucide-react';
-import { teamMembers, type TeamMember } from '../const/teamMembers';
+import { User } from 'lucide-react';
+import { teamMembers, type TeamMember } from '../../shared/lib/teamMembers';
+import { getSocialIcon, handleSocialClick } from '../../shared/lib/utils/teamUtils';
 
 export const Team = () => {
-  const getSocialIcon = (platform: string) => {
-    const iconProps = { className: "w-5 h-5", strokeWidth: 1.5 };
-
-    switch (platform) {
-      case 'github':
-        return <Github {...iconProps} />;
-      case 'linkedin':
-        return <Linkedin {...iconProps} />;
-      case 'email':
-        return <Mail {...iconProps} />;
-      default:
-        return null;
-    }
-  };
-
-  const handleSocialClick = (platform: keyof TeamMember['social'], url?: string) => {
-    if (!url) return;
-
-    if (platform === 'email') {
-      window.location.href = `mailto:${url}`;
-    } else {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    }
+  const renderSocialIcon = (platform: string) => {
+    const IconComponent = getSocialIcon(platform);
+    if (!IconComponent) return null;
+    
+    return <IconComponent className="w-5 h-5" strokeWidth={1.5} />;
   };
 
   const renderMember = (member: TeamMember, index: number) => (
@@ -96,7 +79,7 @@ export const Team = () => {
                 className="p-2.5 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 hover:from-[#b76ec7] hover:to-[#8e24aa] hover:text-white text-gray-600 transition-all duration-300 hover:scale-110 shadow-md hover:shadow-lg"
                 title={`Связаться через ${platform}`}
               >
-                {getSocialIcon(platform)}
+                {renderSocialIcon(platform)}
               </button>
             )
           ))}

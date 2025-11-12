@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { ArrowLeft, Github, ExternalLink, Calendar, Users, CheckCircle } from 'lucide-react';
-import { PROJECTS } from '../features/project/const/project';
+import { PROJECTS } from '../shared/lib/project';
 
 export const ProjectPage = () => {
     const { id } = useParams();
@@ -144,7 +144,7 @@ export const ProjectPage = () => {
                                     {project.github && (
                                         <button
                                             onClick={() => window.open(project.github, '_blank')}
-                                            className="w-full flex items-center justify-center gap-3 bg-gray-900 text-white py-3 px-4 rounded-full font-medium hover:bg-gray-800 transition-colors duration-200"
+                                            className="w-full flex items-center justify-center gap-3 bg-gray-900 text-white py-3 px-4 rounded-full text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200"
                                         >
                                             <Github className="w-5 h-5" />
                                             Исходный код
@@ -153,7 +153,7 @@ export const ProjectPage = () => {
                                     {project.demo && (
                                         <button
                                             onClick={() => window.open(project.demo, '_blank')}
-                                            className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white py-3 px-4 rounded-full font-medium hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25"
+                                            className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white py-3 px-4 rounded-full text-sm lg:text-base font-medium hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25"
                                         >
                                             <ExternalLink className="w-5 h-5" />
                                             Демо версия
@@ -220,7 +220,7 @@ export const ProjectPage = () => {
                                     href="https://t.me/sxdddddddddd"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-full bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white py-3 px-4 rounded-full font-medium hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25 block text-center"
+                                    className="w-full bg-gradient-to-r from-[#b76ec7] to-[#8e24aa] text-white py-3 px-4 text-sm lg:text-base rounded-full font-medium hover:from-[#8e24aa] hover:to-[#b76ec7] transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#b76ec7]/25 block text-center"
                                 >
                                     Обсудить проект
                                 </a>

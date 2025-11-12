@@ -1,9 +1,9 @@
-import { WelcomeMessage } from "../features/home/ui/WelcomeMessage"
-import { WhyChooseUs } from "../features/home/ui/WhyChooseUs"
-import { Calculator } from "../features/home/ui/Calculator"
-import { Team } from "../features/home/ui/Team"
-import { Stack } from "../features/home/ui/Stack"
-import { FAQ } from "../features/home/ui/FAQ"
+import { WelcomeMessage } from "../widgets/home/WelcomeMessage"
+import { WhyChooseUs } from "../widgets/home/WhyChooseUs"
+import { Calculator } from "../widgets/home/Calculator"
+import { Team } from "../widgets/home/Team"
+import { Stack } from "../widgets/home/Stack"
+import { FAQ } from "../widgets/home/FAQ"
 
 export const HomePage = () => {
     return (

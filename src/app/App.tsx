@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom"
-import { Header } from "./app/layouts/Header"
-import { Footer } from "./app/layouts/Footer"
-import { RouterProvider } from "./app/providers/RouterProvider"
+import { Header } from "./layouts/Header"
+import { Footer } from "./layouts/Footer"
+import { RouterProvider } from "./providers/RouterProvider"
 
 function App() {
   const routes = RouterProvider()
