@@ -2,22 +2,8 @@ import type { Project } from "../../../shared/types";
 
 export const PROJECTS: Project[] = [
     {
-        id: 1,
-        name: 'Сайт-визитка для вызова услуг эвакуатора',
-        organization: 'Коммерческий проект',
-        tech: ['React 19 + Vite', 'TypeScript', 'Tailwind CSS', 'Telegram Bot API'],
-        github: 'https://github.com/6ubble/evacuators',
-        demo: 'https://tyagach-hohotach.ru/',
-        image: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Projects/evacuator.avif',
-        category: 'Одностраничный сайт',
-        featured: true,
-        description: 'Простой одностраничный сайт, использующийся для продвижения услуг и заказа услуг.',
-        details: 'SPA-приложение для продвижения личного бренда и собирания клиентской базы посредством CPA-формы со встроенной интеграцией с личным Telegram-ботом',
-        status: 'Завершен и активно используется',
-    },
-    {
         id: 2,
-        name: 'nnvStore',
+        name: 'Интернет-магазин электроники NNV',
         organization: 'Коммерческий проект',
         tech: ['React 19 + Vite', 'TypeScript', 'Tailwind CSS', 'MySQL', 'TanStack Query', 'Zustand', 'Node.js + Express.js'],
         github: 'https://github.com/sxd993/Store-Frontend',
@@ -41,11 +27,11 @@ export const PROJECTS: Project[] = [
     },
     {
         id: 3,
-        name: 'БИП',
+        name: 'Многофункциональный сайт для юридической компании',
         organization: 'Коммерческий проект',
         tech: ['React 19 + Vite', 'Next.js', 'MySQL', 'Tailwind CSS', 'TanStack Query'],
         github: 'https://github.com/sxd993/bip_frontend',
-        demo: '',
+        demo: 'https://baukenlaw.ru/',
         image: 'https://s3.twcstorage.ru/dcd39072-64d4703d-c6e7-4803-9e32-dea6459a0f17/images/Portfolio/Projects/bip.avif',
         category: 'Многофункциональный сайт',
         featured: true,
@@ -64,7 +50,7 @@ export const PROJECTS: Project[] = [
     },
     {
         id: 4,
-        name: 'Салон красоты',
+        name: 'Сайт-визитка для визажиста Beauty Lab',
         organization: 'Коммерческий проект',
         tech: ['React 19 + Vite', 'TypeScript', 'Tailwind CSS', 'Telegram Bot API'],
         github: 'https://github.com/6ubble/visagiste',

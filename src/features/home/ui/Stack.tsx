@@ -1,5 +1,4 @@
 import { Code, Server, CheckSquare } from "lucide-react";
-import { motion } from "framer-motion";
 
 const techCategories = [
   {
@@ -10,7 +9,7 @@ const techCategories = [
   {
     title: "Backend",
     icon: Server,
-    technologies: ["Node.js", "Python", "Django", "FastAPI", "PostgreSQL", "MongoDB"],
+    technologies: ["Node.js", "Nest.js","Python", "Django", "FastAPI", "PostgreSQL"],
   },
   {
     title: "Тестирование",
@@ -19,64 +18,22 @@ const techCategories = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 50,
-    scale: 0.9
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    scale: 1,
-    transition: {
-      type: "spring" as const,
-      damping: 12,
-      stiffness: 100
-    }
-  }
-};
-
 export const Stack = () => {
   return (
     <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 border-b border-gray-200/50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl shadow-2xl shadow-gray-200/20 p-8 md:p-12 hover:shadow-3xl hover:shadow-gray-300/30 transition-all duration-500">
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">Наш технологический стек</h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Используем проверенные и современные технологии для создания надежных решений
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
             {techCategories.map((category, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={itemVariants}
                 className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-300/30 hover:bg-gradient-to-br hover:from-[#b76ec7]/5 hover:to-white transition-all duration-500 group hover:-translate-y-2 hover:border-[#b76ec7]/30"
               >
                 <div className="relative mb-6">
@@ -108,9 +65,9 @@ export const Stack = () => {
                     )}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

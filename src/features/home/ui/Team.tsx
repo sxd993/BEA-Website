@@ -1,35 +1,5 @@
 import { Github, Linkedin, Mail, User } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { teamMembers, type TeamMember } from '../const/teamMembers';
-
-const teamContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const teamItemVariants = {
-  hidden: { 
-    opacity: 0, 
-    x: -60,
-    scale: 0.8
-  },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    scale: 1,
-    transition: {
-      type: "spring" as const,
-      damping: 15,
-      stiffness: 100
-    }
-  }
-};
 
 export const Team = () => {
   const getSocialIcon = (platform: string) => {
@@ -58,9 +28,8 @@ export const Team = () => {
   };
 
   const renderMember = (member: TeamMember, index: number) => (
-    <motion.div
+    <div
       key={`${member.name}-${index}`}
-      variants={teamItemVariants}
       className="bg-gradient-to-br from-white to-gray-50 p-6 rounded-2xl border border-gray-200/50 hover:shadow-xl hover:shadow-gray-300/30 hover:bg-gradient-to-br hover:from-[#b76ec7]/5 hover:to-white transition-all duration-500 group hover:-translate-y-2 hover:border-[#b76ec7]/30"
     >
       <div className="relative mb-6">
@@ -133,37 +102,25 @@ export const Team = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 
   return (
     <section className="py-16 bg-gradient-to-br from-white via-gray-50 to-white border-b border-gray-200/50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl shadow-2xl shadow-gray-200/20 p-8 md:p-12 hover:shadow-3xl hover:shadow-gray-300/30 transition-all duration-500">
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">
               Наша команда
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Профессионалы с многолетним опытом, готовые воплотить любую вашу идею в жизнь
             </p>
-          </motion.div>
+          </div>
           <div className="max-w-6xl mx-auto">
-            <motion.div 
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 lg:px-8"
-              variants={teamContainerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-            >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-4 lg:px-8">
               {teamMembers.map((member, index) => renderMember(member, index))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

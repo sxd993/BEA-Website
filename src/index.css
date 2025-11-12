@@ -28,10 +28,54 @@ html, body {
 
 
 @keyframes floatStars {
-    0%, 100% { transform: translateY(0px) translateX(0px); }
-    25% { transform: translateY(-40px) translateX(30px); }
-    50% { transform: translateY(-20px) translateX(-25px); }
-    75% { transform: translateY(-35px) translateX(20px); }
+    0% { 
+        transform: translate(0px, 0px) scale(1);
+    }
+    25% { 
+        transform: translate(40px, -50px) scale(1.1);
+    }
+    50% { 
+        transform: translate(-35px, -30px) scale(0.9);
+    }
+    75% { 
+        transform: translate(25px, -60px) scale(1.05);
+    }
+    100% { 
+        transform: translate(0px, 0px) scale(1);
+    }
+}
+
+@keyframes floatStar {
+    0%, 100% { 
+        transform: translate(0px, 0px);
+    }
+    50% { 
+        transform: translate(var(--move-x), var(--move-y));
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% { 
+        opacity: 0.4;
+        filter: blur(0px);
+    }
+    25% { 
+        opacity: 0.8;
+        filter: blur(0.5px);
+    }
+    50% { 
+        opacity: 0.5;
+        filter: blur(0px);
+    }
+    75% { 
+        opacity: 0.9;
+        filter: blur(0.3px);
+    }
+}
+
+@keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 
@@ -86,7 +130,15 @@ html, body {
 
 
 .animate-float-stars {
-    animation: floatStars 6s ease-in-out infinite;
+    animation: floatStars 8s ease-in-out infinite;
+}
+
+.animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
 }
 
 
@@ -94,13 +146,19 @@ html, body {
 /* Mobile optimizations */
 @media (max-width: 767px) {
     .animate-float-stars {
-        animation-duration: 8s; /* Slower stars on mobile */
+        animation-duration: 10s; /* Slower stars on mobile */
+    }
+    .animate-twinkle {
+        animation-duration: 4s; /* Slower twinkle on mobile */
     }
 }
 
 /* Large screen optimizations */
 @media (min-width: 1024px) {
     .animate-float-stars {
-        animation-duration: 5s; /* Faster stars on large screens */
+        animation-duration: 6s; /* Faster stars on large screens */
+    }
+    .animate-twinkle {
+        animation-duration: 2.5s; /* Faster twinkle on large screens */
     }
 }

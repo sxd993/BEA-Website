@@ -1,54 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { AccordionSection } from "../../../shared/ui/AccordionSection";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2
-    }
-  }
-};
-
-const sectionVariants = {
-  hidden: { 
-    opacity: 0, 
-    x: -50,
-    scale: 0.95
-  },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    scale: 1,
-    transition: {
-      type: "spring" as const,
-      damping: 15,
-      stiffness: 100
-    }
-  }
-};
-
-const resultVariants = {
-  hidden: { 
-    opacity: 0, 
-    scale: 0.8,
-    y: 30
-  },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    y: 0,
-    transition: {
-      type: "spring" as const,
-      damping: 12,
-      stiffness: 150,
-      delay: 0.5
-    }
-  }
-};
 
 export const Calculator = () => {
   const [projectType, setProjectType] = useState("landing");
@@ -107,32 +58,21 @@ export const Calculator = () => {
     <section className="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50 border-b border-gray-200/50">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl shadow-2xl shadow-gray-200/20 p-6 md:p-8 hover:shadow-3xl hover:shadow-gray-300/30 transition-all duration-500">
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="text-center">
             <h2 className="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-[#8e24aa] to-gray-900 bg-clip-text text-transparent">
               Калькулятор стоимости
             </h2>
             <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4 leading-relaxed">
               Рассчитайте предварительную стоимость вашего проекта за пару минут
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-gray-200/50">
 
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-              >
+              <div>
                 {/* Тип проекта */}
-                <motion.div variants={sectionVariants}>
+                <div>
                   <AccordionSection title="Тип проекта" titleClassName="text-sm md:text-base">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                       {Object.entries(projectTypes).map(([key, type]) => (
@@ -167,10 +107,10 @@ export const Calculator = () => {
                       ))}
                     </div>
                   </AccordionSection>
-                </motion.div>
+                </div>
 
                 {/* Дополнительные функции */}
-                <motion.div variants={sectionVariants}>
+                <div>
                   <AccordionSection title="Доп. функции" titleClassName="text-sm md:text-base">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                       {Object.entries(additionalFeatures).map(([key, feature]) => (
@@ -203,10 +143,10 @@ export const Calculator = () => {
                       ))}
                     </div>
                   </AccordionSection>
-                </motion.div>
+                </div>
 
                 {/* Сроки выполнения */}
-                <motion.div variants={sectionVariants}>
+                <div>
                   <AccordionSection title="Сроки выполнения" titleClassName="text-sm md:text-base">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                       {Object.entries(timelineMultipliers).map(([key, option]) => (
@@ -257,13 +197,10 @@ export const Calculator = () => {
                       ))}
                     </div>
                   </AccordionSection>
-                </motion.div>
+                </div>
 
                 {/* Результат */}
-                <motion.div 
-                  variants={resultVariants}
-                  className="bg-gradient-to-r from-[#b76ec7]/15 to-[#8e24aa]/15 rounded-xl p-4 md:p-6 border border-[#b76ec7]/30 shadow-lg shadow-[#b76ec7]/10"
-                >
+                <div className="bg-gradient-to-r from-[#b76ec7]/15 to-[#8e24aa]/15 rounded-xl p-4 md:p-6 border border-[#b76ec7]/30 shadow-lg shadow-[#b76ec7]/10">
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div className="w-full">
                       <h3 className="text-lg md:text-xl font-bold mb-2 bg-gradient-to-r from-[#8e24aa] to-[#b76ec7] bg-clip-text text-transparent">
@@ -275,15 +212,9 @@ export const Calculator = () => {
                     </div>
                     
                     <div className="w-full space-y-4">
-                      <motion.div 
-                        className="text-xl md:text-3xl font-bold bg-gradient-to-r from-[#8e24aa] to-[#b76ec7] bg-clip-text text-transparent drop-shadow-lg"
-                        key={calculatePrice()}
-                        initial={{ scale: 1.2, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ type: "spring", damping: 10, stiffness: 200 }}
-                      >
+                      <div className="text-xl md:text-3xl font-bold bg-gradient-to-r from-[#8e24aa] to-[#b76ec7] bg-clip-text text-transparent drop-shadow-lg">
                         {calculatePrice().toLocaleString()} ₽
-                      </motion.div>
+                      </div>
                       
                       <a
                         href="https://t.me/sxdddddddddd"
@@ -308,8 +239,8 @@ export const Calculator = () => {
                       </a>
                     </div>
                   </div>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
 
             </div>
           </div>
